@@ -75,6 +75,7 @@ namespace software
 
             DataTable customer = Customer.getSingleCustomer(customerId);
 
+            // Loops over each row of the retrieved customers
             foreach (DataRow row in customer.Rows)
             {
                 txtCustomerName.Text = row["forename"].ToString() + " " + row["surname"].ToString();

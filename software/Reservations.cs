@@ -136,5 +136,31 @@ namespace software
             conn.Close();
 
         }
+
+        public static Boolean isCarAvailable(String regNum, DateTime arrivalDate, DateTime returnDate)
+        {
+            Boolean available = true;
+            String myArrDate = String.Format("{0:dd-MMM-yy}", arrivalDate);
+            String myRetDate = String.Format("{0:dd-MMM-yy}", returnDate);
+
+            //Connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL Query
+            String strSQL = "SELECT * FROM  Reservations WHERE RegPlate = '" + regNum + "' AND (('" + myArrDate + "' BETWEEN arrivalDate AND returnDate) OR ('" + myRetDate + "' BETWEEN arrivalDate AND returnDate))";
+
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+                available = false;
+            //Close DB connection
+            conn.Close();
+
+            return available;
+        }
+
     }
 }

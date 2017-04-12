@@ -115,8 +115,21 @@ namespace software
                 return;
             }
 
-            //  TODO: Check that car available on selected days
             
+            // Check that return date is after arrivalDate
+            if (dtpArrival.Value.AddDays(1) > dtpReturn.Value.AddSeconds(1))
+            {
+                MessageBox.Show("Return date must be after arrival date");
+                return;
+            }
+
+            //  Check that car available on selected days
+            if (!Reservations.isCarAvailable(txtCarReg.Text, dtpArrival.Value, dtpReturn.Value))
+            {
+                MessageBox.Show("Car is not available on the selected dates");
+                return;
+            }
+
             //save booking details in DB
             //Instantiate Car object
             Reservations myRes = new Reservations(Int32.Parse(txtRerID.Text.ToString()), txtForename.Text.ToUpper(), txtSurname.Text.ToUpper(), txtPhoneNumber.Text.ToUpper(), txtAddress.Text.ToUpper(), dtpArrival.Value, dtpReturn.Value, txtCarReg.Text, 'B');

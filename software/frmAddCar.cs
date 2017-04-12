@@ -51,8 +51,7 @@ namespace software
 
             }
          }
-
-        //checks if registration plate is valid 
+ 
         private void btnAddCar_Click(object sender, EventArgs e)
         {
             //validate registration plate

@@ -19,6 +19,9 @@ namespace software
         {
             InitializeComponent();
             this.parent = parent;
+
+            //retrieves info from DB
+            grdViewCarList.DataSource = Car.getCars();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

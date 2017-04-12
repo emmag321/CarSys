@@ -19,6 +19,8 @@ namespace software
         {
             InitializeComponent();
             this.parent = parent;
+
+            grdCancelBooking.DataSource = Car.getCars();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,6 +41,16 @@ namespace software
         }
 
         private void frmCancelBooking_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grdCancelBooking_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnCancelBooking_Click(object sender, EventArgs e)
         {
 
         }

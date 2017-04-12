@@ -18,6 +18,10 @@ namespace software
         private string make;
         private string model;
         private char status;
+        private string v1;
+        private string v2;
+        private string v3;
+        private string v4;
 
         // Constructor with no arguments 
         public Car()
@@ -41,6 +45,14 @@ namespace software
             this.make = makes;
             this.model = model;
             this.status = status;
+        }
+
+        public Car(string v1, string v2, string v3, string v4)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.v3 = v3;
+            this.v4 = v4;
         }
 
         public void regAddCar()
@@ -84,7 +96,7 @@ namespace software
                 this.regPlate = dr.GetString(0);
                 this.carClass = Convert.ToChar(dr.GetString(1).Substring(0,1));
                 this.FuelType = Convert.ToChar(dr.GetString(2).Substring(0, 1));
-                //this.numDoors = Convert.ToInt32(dr.GetString(3));
+                this.numDoors = Convert.ToInt32(dr.GetValue(3));
                 this.make = dr.GetString(4);
                 this.model = dr.GetString(5);
             }
@@ -139,7 +151,50 @@ namespace software
             return answer;
 
         }
+        //This method will delete cars 
+        public static void deleteCars(String RegPlate)
+        {
+            //Connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
 
+
+            //here needs to be fixed
+            String strSQL = "UPDATE Cars SET Status = 'R' WHERE RegPlate = '" + RegPlate + "'";
+            
+
+            //Execute SQL Query
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
+
+            //Close DB Connection
+            conn.Close();
+
+        }
+        
+        //Method updates the cars details into DB
+        public void updateCars(String RegPlate)
+        {
+            //Connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+
+            //here needs to be fixed
+            String strSQL = "UPDATE INTO Cars ('" + this.regPlate + "','" + this.carClass +
+                "','" + this.FuelType + "'," + this.numDoors + ",'" + this.make + "','" + this.model + "','A')";
+
+
+            //Execute SQL Query
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
+
+            //Close DB Connection
+            conn.Close();
+
+        }
+
+        //Retrieves cars details from DB 
         public static DataTable getCars()
         {
             //connect to DB
@@ -161,6 +216,7 @@ namespace software
             return DS.Tables["cars"];
         }
 
+       
         /********** setters *********/ //this part will access the varibles and change them directly
 
 

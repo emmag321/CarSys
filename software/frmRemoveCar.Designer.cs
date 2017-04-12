@@ -24,9 +24,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnCon;
-        private System.Windows.Forms.ComboBox cboCar;
-        private System.Windows.Forms.Label lblCarReg;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdRemoveCar;
+        private System.Windows.Forms.DataGridViewButtonColumn grdBtnDelete;
     }
 }

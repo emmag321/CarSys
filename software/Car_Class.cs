@@ -49,8 +49,8 @@ public static DataTable getCarClasses()
 }
 
 
-        //This method will make sure that the same class isnt put in the database twice
-        public static Boolean isExistingClass(String classCode)
+   //This method will make sure that the same class isnt put in the database twice
+   public static Boolean isExistingClass(String classCode)
 {
    Boolean answer = false;
 
@@ -72,12 +72,6 @@ public static DataTable getCarClasses()
 
    return answer;
 }
-
-   /* internal static DataTable getCarClasses()
-    {
-    throw new NotImplementedException();
-    }*/
-
 
 //This will put the car class into the DB
 public void regCarClass()

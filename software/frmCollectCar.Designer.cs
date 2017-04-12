@@ -30,8 +30,8 @@
         {
             this.btnBack = new System.Windows.Forms.Button();
             this.btnCollectCar = new System.Windows.Forms.Button();
-            this.cboCar = new System.Windows.Forms.ComboBox();
-            this.lblCarReg = new System.Windows.Forms.Label();
+            this.grdCollectCar = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCollectCar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -48,47 +48,37 @@
             // btnCollectCar
             // 
             this.btnCollectCar.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.btnCollectCar.Location = new System.Drawing.Point(119, 95);
+            this.btnCollectCar.Location = new System.Drawing.Point(364, 595);
             this.btnCollectCar.Name = "btnCollectCar";
             this.btnCollectCar.Size = new System.Drawing.Size(148, 22);
             this.btnCollectCar.TabIndex = 47;
-            this.btnCollectCar.Text = "Confirm Cancellation";
+            this.btnCollectCar.Text = "Confirm Collection";
             this.btnCollectCar.UseVisualStyleBackColor = true;
+            this.btnCollectCar.Click += new System.EventHandler(this.btnCollectCar_Click);
             // 
-            // cboCar
+            // grdCollectCar
             // 
-            this.cboCar.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.cboCar.FormattingEnabled = true;
-            this.cboCar.Location = new System.Drawing.Point(119, 44);
-            this.cboCar.Name = "cboCar";
-            this.cboCar.Size = new System.Drawing.Size(148, 23);
-            this.cboCar.TabIndex = 46;
-            this.cboCar.Text = "Please Select Registration ";
-            // 
-            // lblCarReg
-            // 
-            this.lblCarReg.AutoSize = true;
-            this.lblCarReg.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.lblCarReg.Location = new System.Drawing.Point(12, 47);
-            this.lblCarReg.Name = "lblCarReg";
-            this.lblCarReg.Size = new System.Drawing.Size(101, 16);
-            this.lblCarReg.TabIndex = 45;
-            this.lblCarReg.Text = "Car Registration:";
+            this.grdCollectCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCollectCar.Location = new System.Drawing.Point(12, 41);
+            this.grdCollectCar.Name = "grdCollectCar";
+            this.grdCollectCar.Size = new System.Drawing.Size(847, 308);
+            this.grdCollectCar.TabIndex = 48;
+            this.grdCollectCar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCollectCar_CellContentClick);
             // 
             // frmCollectCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(342, 150);
+            this.ClientSize = new System.Drawing.Size(895, 640);
+            this.Controls.Add(this.grdCollectCar);
             this.Controls.Add(this.btnCollectCar);
-            this.Controls.Add(this.cboCar);
-            this.Controls.Add(this.lblCarReg);
             this.Controls.Add(this.btnBack);
             this.Name = "frmCollectCar";
-            this.Text = "frmCollectCar";
+            this.Text = "Collect Car";
+            this.Load += new System.EventHandler(this.frmCollectCar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grdCollectCar)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -96,7 +86,6 @@
 
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnCollectCar;
-        private System.Windows.Forms.ComboBox cboCar;
-        private System.Windows.Forms.Label lblCarReg;
+        private System.Windows.Forms.DataGridView grdCollectCar;
     }
 }

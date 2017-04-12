@@ -17,6 +17,10 @@ namespace software
         {
             InitializeComponent();
             this.parent = parent;
+
+            grdCollectCar.DataSource = Customer.getCustomers();
+
+
         }
 
 
@@ -24,6 +28,24 @@ namespace software
         {
             parent.Show();
             this.Dispose();
+        }
+
+
+
+        private void frmCollectCar_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void grdCollectCar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnCollectCar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

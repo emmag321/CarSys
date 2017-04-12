@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.btnBack = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cboCar = new System.Windows.Forms.ComboBox();
-            this.lblCarReg = new System.Windows.Forms.Label();
+            this.grdCancelBooking = new System.Windows.Forms.DataGridView();
+            this.btnCancelBooking = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCancelBooking)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -45,58 +45,46 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
             // 
-            // button1
+            // grdCancelBooking
             // 
-            this.button1.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.button1.Location = new System.Drawing.Point(123, 105);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(166, 23);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Confirm Cancellation";
-            this.button1.UseVisualStyleBackColor = true;
+            this.grdCancelBooking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCancelBooking.Location = new System.Drawing.Point(12, 54);
+            this.grdCancelBooking.Name = "grdCancelBooking";
+            this.grdCancelBooking.Size = new System.Drawing.Size(676, 404);
+            this.grdCancelBooking.TabIndex = 39;
+            this.grdCancelBooking.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCancelBooking_CellContentClick);
             // 
-            // cboCar
+            // btnCancelBooking
             // 
-            this.cboCar.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.cboCar.FormattingEnabled = true;
-            this.cboCar.Location = new System.Drawing.Point(123, 55);
-            this.cboCar.Name = "cboCar";
-            this.cboCar.Size = new System.Drawing.Size(166, 23);
-            this.cboCar.TabIndex = 43;
-            this.cboCar.Text = "Please Select Registration ";
-            // 
-            // lblCarReg
-            // 
-            this.lblCarReg.AutoSize = true;
-            this.lblCarReg.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.lblCarReg.Location = new System.Drawing.Point(16, 57);
-            this.lblCarReg.Name = "lblCarReg";
-            this.lblCarReg.Size = new System.Drawing.Size(101, 16);
-            this.lblCarReg.TabIndex = 42;
-            this.lblCarReg.Text = "Car Registration:";
+            this.btnCancelBooking.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelBooking.Location = new System.Drawing.Point(257, 491);
+            this.btnCancelBooking.Name = "btnCancelBooking";
+            this.btnCancelBooking.Size = new System.Drawing.Size(154, 34);
+            this.btnCancelBooking.TabIndex = 40;
+            this.btnCancelBooking.Text = "Cancel Booking";
+            this.btnCancelBooking.UseVisualStyleBackColor = true;
+            this.btnCancelBooking.Click += new System.EventHandler(this.btnCancelBooking_Click);
             // 
             // frmCancelBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(339, 164);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.cboCar);
-            this.Controls.Add(this.lblCarReg);
+            this.ClientSize = new System.Drawing.Size(700, 555);
+            this.Controls.Add(this.btnCancelBooking);
+            this.Controls.Add(this.grdCancelBooking);
             this.Controls.Add(this.btnBack);
             this.Name = "frmCancelBooking";
             this.Text = "CancelBooking";
             this.Load += new System.EventHandler(this.frmCancelBooking_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grdCancelBooking)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox cboCar;
-        private System.Windows.Forms.Label lblCarReg;
+        private System.Windows.Forms.DataGridView grdCancelBooking;
+        private System.Windows.Forms.Button btnCancelBooking;
     }
 }

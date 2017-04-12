@@ -36,7 +36,7 @@ namespace software
             conn.Open();
 
             //Define SQL Query
-            String strSQL = "SELECT * FROM Customers";
+            String strSQL = "SELECT * FROM Reservations";
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
             OracleDataAdapter da = new OracleDataAdapter(cmd);
@@ -50,7 +50,7 @@ namespace software
             return DS.Tables["custs"];
         }
 
-        public static DataTable getSingleCustomer(int customerId)
+        public static DataTable getNextReservationId(int customerId)
         {
             //connect to DB
             OracleConnection conn = new OracleConnection(DBConnect.oradb);

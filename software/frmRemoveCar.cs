@@ -12,23 +12,25 @@ namespace software
 {
     public partial class frmRemoveCar : Form
     {
-
+        
         private frmMain parent;
+        
 
         public frmRemoveCar(frmMain parent)
         {
             InitializeComponent();
             this.parent = parent;
+
+
+            grdRemoveCar.DataSource = Car.getCars();
         }
 
         private void InitializeComponent()
         {
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnCon = new System.Windows.Forms.Button();
-            this.cboCar = new System.Windows.Forms.ComboBox();
-            this.lblCarReg = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grdRemoveCar = new System.Windows.Forms.DataGridView();
+            this.grdBtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.grdRemoveCar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -42,60 +44,40 @@ namespace software
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnCon
+            // grdRemoveCar
             // 
-            this.btnCon.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.btnCon.Location = new System.Drawing.Point(147, 106);
-            this.btnCon.Name = "btnCon";
-            this.btnCon.Size = new System.Drawing.Size(164, 23);
-            this.btnCon.TabIndex = 41;
-            this.btnCon.Text = "Confirm Removal of Car";
-            this.btnCon.UseVisualStyleBackColor = true;
+            this.grdRemoveCar.AllowUserToAddRows = false;
+            this.grdRemoveCar.AllowUserToDeleteRows = false;
+            this.grdRemoveCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdRemoveCar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grdBtnDelete});
+            this.grdRemoveCar.Location = new System.Drawing.Point(20, 50);
+            this.grdRemoveCar.Name = "grdRemoveCar";
+            this.grdRemoveCar.ReadOnly = true;
+            this.grdRemoveCar.Size = new System.Drawing.Size(829, 292);
+            this.grdRemoveCar.TabIndex = 42;
+            this.grdRemoveCar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdRemoveCar_CellClick);
             // 
-            // cboCar
+            // grdBtnDelete
             // 
-            this.cboCar.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.cboCar.FormattingEnabled = true;
-            this.cboCar.Location = new System.Drawing.Point(151, 67);
-            this.cboCar.Name = "cboCar";
-            this.cboCar.Size = new System.Drawing.Size(160, 23);
-            this.cboCar.TabIndex = 40;
-            this.cboCar.Text = "Please Select Registration ";
-            this.cboCar.SelectedIndexChanged += new System.EventHandler(this.cboCar_SelectedIndexChanged);
-            // 
-            // lblCarReg
-            // 
-            this.lblCarReg.AutoSize = true;
-            this.lblCarReg.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.lblCarReg.Location = new System.Drawing.Point(47, 69);
-            this.lblCarReg.Name = "lblCarReg";
-            this.lblCarReg.Size = new System.Drawing.Size(98, 16);
-            this.lblCarReg.TabIndex = 39;
-            this.lblCarReg.Text = "Car Registration";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 161);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(581, 292);
-            this.dataGridView1.TabIndex = 42;
+            this.grdBtnDelete.HeaderText = "Delete";
+            this.grdBtnDelete.Name = "grdBtnDelete";
+            this.grdBtnDelete.ReadOnly = true;
+            this.grdBtnDelete.Text = "Delete";
+            this.grdBtnDelete.ToolTipText = "Delete Car";
+            this.grdBtnDelete.UseColumnTextForButtonValue = true;
             // 
             // frmRemoveCar
             // 
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(626, 473);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnCon);
-            this.Controls.Add(this.cboCar);
-            this.Controls.Add(this.lblCarReg);
+            this.ClientSize = new System.Drawing.Size(861, 444);
+            this.Controls.Add(this.grdRemoveCar);
             this.Controls.Add(this.btnBack);
             this.Name = "frmRemoveCar";
             this.Text = "Remove Car";
             this.Load += new System.EventHandler(this.frmRemoveCar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdRemoveCar)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -111,9 +93,27 @@ namespace software
             this.Dispose();
         }
 
-        private void cboCar_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+        private void grdRemoveCar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                if (grdRemoveCar.Rows[e.RowIndex].Cells[7].Value.ToString() != "R")
+                {
+                    DialogResult confirmResult = MessageBox.Show("Are you sure to remove this Car?", "Confirm Remove", MessageBoxButtons.YesNo);
+
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        Car.deleteCars(grdRemoveCar.Rows[e.RowIndex].Cells[1].Value.ToString());
+                        grdRemoveCar.DataSource = Car.getCars();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Car has already been removed");
+                }
+            }
+            
         }
     }
 }

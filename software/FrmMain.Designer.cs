@@ -44,10 +44,6 @@
             this.incomeAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageCustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItemRegCustomer = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItemUpdateCustomer = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,7 +55,6 @@
             this.manageCarsToolStripMenuItem,
             this.manageReservationsToolStripMenuItem,
             this.manageFinancesToolStripMenuItem,
-            this.manageCustomersToolStripMenuItem,
             this.btnExit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -185,37 +180,6 @@
             this.btnExit.Text = "Exit";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // manageCustomersToolStripMenuItem
-            // 
-            this.manageCustomersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuItemRegCustomer,
-            this.mnuItemUpdateCustomer,
-            this.deleteCustomerToolStripMenuItem});
-            this.manageCustomersToolStripMenuItem.Name = "manageCustomersToolStripMenuItem";
-            this.manageCustomersToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.manageCustomersToolStripMenuItem.Text = "Manage Customers";
-            // 
-            // mnuItemRegCustomer
-            // 
-            this.mnuItemRegCustomer.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mnuItemRegCustomer.Name = "mnuItemRegCustomer";
-            this.mnuItemRegCustomer.Size = new System.Drawing.Size(171, 22);
-            this.mnuItemRegCustomer.Text = "Register Customer";
-            this.mnuItemRegCustomer.Click += new System.EventHandler(this.mnuItemRegCustomer_Click);
-            // 
-            // mnuItemUpdateCustomer
-            // 
-            this.mnuItemUpdateCustomer.Name = "mnuItemUpdateCustomer";
-            this.mnuItemUpdateCustomer.Size = new System.Drawing.Size(171, 22);
-            this.mnuItemUpdateCustomer.Text = "Update Customer";
-            this.mnuItemUpdateCustomer.Click += new System.EventHandler(this.mnuItemUpdateCustomer_Click);
-            // 
-            // deleteCustomerToolStripMenuItem
-            // 
-            this.deleteCustomerToolStripMenuItem.Name = "deleteCustomerToolStripMenuItem";
-            this.deleteCustomerToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.deleteCustomerToolStripMenuItem.Text = "Delete Customer";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::software.Properties.Resources.tumblr_ofks3mjP6v1vhnuslo1_1280;
@@ -225,6 +189,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(983, 538);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmMain
             // 
@@ -265,9 +230,5 @@
         private System.Windows.Forms.ToolStripMenuItem btnExit;
         private System.Windows.Forms.ToolStripMenuItem btnUpdateCar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ToolStripMenuItem manageCustomersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mnuItemRegCustomer;
-        private System.Windows.Forms.ToolStripMenuItem mnuItemUpdateCustomer;
-        private System.Windows.Forms.ToolStripMenuItem deleteCustomerToolStripMenuItem;
     }
 }

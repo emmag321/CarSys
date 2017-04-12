@@ -85,12 +85,27 @@ namespace software
             this.Dispose();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void lblCreateCarClass_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void lblCreateCarClass_Click(object sender, EventArgs e)
+        private void lblClassCode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDescription_Click(object sender, EventArgs e)
         {
 
         }

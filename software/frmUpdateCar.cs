@@ -42,6 +42,7 @@ namespace software
         //Button that brings all info from db - info on the car - so it can be changed
         private void bntOK_Click(object sender, EventArgs e)
         {
+            
             //validate data
             //retrieve car details from DB
             Car myCar = new Car();
@@ -70,19 +71,16 @@ namespace software
             //set fuel type
             loadFuelTypes(myCar.getFuelType());
 
+
+
             //Set Num Doors
             loadNumDoors(myCar.getNumDoors().ToString());
-            /*
-            while (!(myCar.getNumDoors().Equals(Convert.ToInt32(cboNumDoors.Text.Substring(0, 1)))))
-            {
-                cboNumDoors.SelectedIndex++;
-            }*/
-
+           
             //Set makes 
             loadMake(myCar.getMake());
 
             //Set model 
-            //loadModel(myCar.getModel());
+            loadModel(myCar.getModel());
 
             grpCar.Visible = true;
         }
@@ -103,7 +101,7 @@ namespace software
         {
 
             cboNumDoors.Items.Add("3 Doors");
-            cboNumDoors.Items.Add("5Doors");
+            cboNumDoors.Items.Add("5 Doors");
 
             //set the combobox to required number of doors
             /*cboNumDoors.SelectedIndex = 0;
@@ -132,10 +130,10 @@ namespace software
             cboMake.SelectedIndex = cboMake.FindString(make);
         }
 
-        /*public void loadModel(String model)
+        public void loadModel(String model)
         {
-            lblModel.Text = model;
-        }*/
+            txtModel.Text = model;
+        }
 
         
         private void grpCar_Enter(object sender, EventArgs e)
@@ -191,13 +189,13 @@ namespace software
                 MessageBox.Show("All Fields must be filled");
                 return;
 
-            }/*
-            else if (Car.alreadyRegistered(txtRegPlate.Text))
-            {
-                MessageBox.Show("Already Exists Please Try Again");
-                txtRegPlate.Focus();
-                return;
-            }*/
+            }
+           
+            Car myCar = new Car((txtRegPlate.Text.ToUpper()), Convert.ToChar(cboClasses.Text.Substring(0, 1)), Convert.ToChar(cboFuelTypes.Text.Substring(0, 1)), Convert.ToInt32(cboNumDoors.Text.Substring(0, 1)), cboMake.Text, (txtModel.Text.ToUpper()), 'A');
+
+            //Need code to put back into DB 
+            myCar.updateCars(myCar.getRegPlate());
+
         }
 
         private void cboNumDoors_SelectedIndexChanged(object sender, EventArgs e)
@@ -211,6 +209,16 @@ namespace software
         }
 
         private void lblReg_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grdUpdateCars_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnUpdateCars_Click(object sender, EventArgs e)
         {
 
         }

@@ -91,17 +91,11 @@
       <DependentUpon>frmSetClass.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnect.cs" />
-    <Compile Include="frmMakeBooking.cs">
+    <Compile Include="frmMakeReservation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMakeBooking.Designer.cs">
-      <DependentUpon>frmMakeBooking.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmUpdateCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUpdateCustomer.Designer.cs">
-      <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
+    <Compile Include="frmMakeReservation.Designer.cs">
+      <DependentUpon>frmMakeReservation.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,12 +117,6 @@
     <Compile Include="frmViewCarList.Designer.cs">
       <DependentUpon>frmViewCarList.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRegCustomer.Designer.cs">
-      <DependentUpon>frmRegCustomer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reservations.cs" />
     <Compile Include="SelectedIndex.cs" />
     <EmbeddedResource Include="frmAddCar.resx">
@@ -149,11 +137,8 @@
     <EmbeddedResource Include="frmSetClass.resx">
       <DependentUpon>frmSetClass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMakeBooking.resx">
-      <DependentUpon>frmMakeBooking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUpdateCustomer.resx">
-      <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="frmMakeReservation.resx">
+      <DependentUpon>frmMakeReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -173,9 +158,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewCarList.resx">
       <DependentUpon>frmViewCarList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRegCustomer.resx">
-      <DependentUpon>frmRegCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

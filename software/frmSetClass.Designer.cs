@@ -30,13 +30,13 @@
         {
             this.txtClassCode = new System.Windows.Forms.TextBox();
             this.txtRate = new System.Windows.Forms.TextBox();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblRate = new System.Windows.Forms.Label();
+            this.lblClassCode = new System.Windows.Forms.Label();
             this.btnSet = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblCreateCarClass = new System.Windows.Forms.Label();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtClassCode
@@ -56,47 +56,29 @@
             this.txtRate.TabIndex = 12;
             this.txtRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txtDescription
+            // lblRate
             // 
-            this.txtDescription.Location = new System.Drawing.Point(207, 134);
-            this.txtDescription.MaxLength = 15;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(96, 19);
-            this.txtDescription.TabIndex = 11;
+            this.lblRate.AutoSize = true;
+            this.lblRate.Font = new System.Drawing.Font("Modern No. 20", 10F);
+            this.lblRate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblRate.Location = new System.Drawing.Point(164, 167);
+            this.lblRate.Name = "lblRate";
+            this.lblRate.Size = new System.Drawing.Size(34, 16);
+            this.lblRate.TabIndex = 17;
+            this.lblRate.Text = "Rate";
+            this.lblRate.Click += new System.EventHandler(this.lblRate_Click);
             // 
-            // label4
+            // lblClassCode
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(164, 167);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 16);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Rate";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(128, 136);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 16);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Description";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(132, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 16);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Class Code";
+            this.lblClassCode.AutoSize = true;
+            this.lblClassCode.Font = new System.Drawing.Font("Modern No. 20", 10F);
+            this.lblClassCode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblClassCode.Location = new System.Drawing.Point(132, 109);
+            this.lblClassCode.Name = "lblClassCode";
+            this.lblClassCode.Size = new System.Drawing.Size(66, 16);
+            this.lblClassCode.TabIndex = 15;
+            this.lblClassCode.Text = "Class Code";
+            this.lblClassCode.Click += new System.EventHandler(this.lblClassCode_Click);
             // 
             // btnSet
             // 
@@ -132,20 +114,41 @@
             this.lblCreateCarClass.Text = "Please Create Car Class";
             this.lblCreateCarClass.Click += new System.EventHandler(this.lblCreateCarClass_Click);
             // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(207, 134);
+            this.txtDescription.MaxLength = 15;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(96, 19);
+            this.txtDescription.TabIndex = 20;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Modern No. 20", 10F);
+            this.lblDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblDescription.Location = new System.Drawing.Point(124, 136);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(73, 16);
+            this.lblDescription.TabIndex = 21;
+            this.lblDescription.Text = "Description";
+            this.lblDescription.Click += new System.EventHandler(this.lblDescription_Click);
+            // 
             // frmSetClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(491, 337);
+            this.Controls.Add(this.lblDescription);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblCreateCarClass);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtClassCode);
             this.Controls.Add(this.txtRate);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblRate);
+            this.Controls.Add(this.lblClassCode);
             this.Controls.Add(this.btnSet);
             this.Font = new System.Drawing.Font("Modern No. 20", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -162,12 +165,12 @@
 
         private System.Windows.Forms.TextBox txtClassCode;
         private System.Windows.Forms.TextBox txtRate;
-        private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblRate;
+        private System.Windows.Forms.Label lblClassCode;
         private System.Windows.Forms.Button btnSet;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblCreateCarClass;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.Label lblDescription;
     }
 }

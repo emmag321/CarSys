@@ -17,6 +17,8 @@ namespace software
         {
             InitializeComponent();
             this.parent = parent;
+
+            grdReturns.DataSource = Customer.getCustomers();
         }
 
 

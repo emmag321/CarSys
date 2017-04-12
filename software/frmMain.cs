@@ -15,6 +15,7 @@ namespace software
         public frmMain()
         {
             InitializeComponent();
+            
         }
 
         private void btnSetCarClass_Click(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace software
         private void btnMakeBooking_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmMakeBooking frmNext = new frmMakeBooking(this);
+            frmMakeReservation frmNext = new frmMakeReservation(this);
             frmNext.Show();
         }
 
@@ -91,27 +92,10 @@ namespace software
             frmNext.Show();
         }
 
-        private void picLogo_Click(object sender, EventArgs e)
+       
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void mnuItemRegCustomer_Click(object sender, EventArgs e)
-        {
-            frmRegCustomer frmNext= new frmRegCustomer(this);
-
-            this.Hide();
-
-            frmNext.Show();
-        }
-
-
-        private void mnuItemUpdateCustomer_Click(object sender, EventArgs e)
-        {
-            frmUpdateCustomer frmNext = new frmUpdateCustomer(this);
-
-            this.Hide();
-            frmNext.Show();
         }
     }
 }

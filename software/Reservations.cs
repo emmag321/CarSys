@@ -148,7 +148,7 @@ namespace software
             conn.Open();
 
             //Define SQL Query
-            String strSQL = "SELECT * FROM  Reservations WHERE RegPlate = '" + regNum + "' AND (('" + myArrDate + "' BETWEEN arrivalDate AND returnDate) OR ('" + myRetDate + "' BETWEEN arrivalDate AND returnDate))";
+            String strSQL = "SELECT * FROM  Reservations WHERE RegPlate = '" + regNum + "' AND status = 'B' AND (('" + myArrDate + "' BETWEEN arrivalDate AND returnDate) OR ('" + myRetDate + "' BETWEEN arrivalDate AND returnDate))";
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 

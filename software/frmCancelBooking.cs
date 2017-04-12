@@ -21,6 +21,7 @@ namespace software
             this.parent = parent;
 
             grdCancelBooking.DataSource = Car.getCars();
+            //grdCancelBooking.DataSource = Car.deleteReservation();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

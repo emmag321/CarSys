@@ -60,10 +60,10 @@ namespace software
             // 
             // grdBtnDelete
             // 
-            this.grdBtnDelete.HeaderText = "Delete";
+            this.grdBtnDelete.HeaderText = "Remove";
             this.grdBtnDelete.Name = "grdBtnDelete";
             this.grdBtnDelete.ReadOnly = true;
-            this.grdBtnDelete.Text = "Delete";
+            this.grdBtnDelete.Text = "Remove";
             this.grdBtnDelete.ToolTipText = "Delete Car";
             this.grdBtnDelete.UseColumnTextForButtonValue = true;
             // 

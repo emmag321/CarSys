@@ -51,31 +51,6 @@ namespace software
             }
         }
 
-        private void grdCars_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void lblAddresses_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblPhoneNumber_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblSurname_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblForename_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtForename_TextChanged(object sender, EventArgs e)
         {
 
@@ -148,9 +123,27 @@ namespace software
 
         private void txtCarReg_TextChanged(object sender, EventArgs e)
         {
+            txtRerID.ReadOnly = true;
+        }
+
+        private void grdCars_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
 
-       
+        private void True(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblForename_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSurname_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

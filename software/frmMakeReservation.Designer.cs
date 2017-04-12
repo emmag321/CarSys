@@ -42,11 +42,11 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.grpCustDetails = new System.Windows.Forms.GroupBox();
             this.grpBookings = new System.Windows.Forms.GroupBox();
-            this.btnConfirmBooking = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpArrival = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpReturn = new System.Windows.Forms.DateTimePicker();
+            this.btnConfirmBooking = new System.Windows.Forms.Button();
             this.txtRerID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdCars)).BeginInit();
             this.grpCustDetails.SuspendLayout();
@@ -121,7 +121,6 @@
             this.lblPhoneNumber.Size = new System.Drawing.Size(94, 16);
             this.lblPhoneNumber.TabIndex = 64;
             this.lblPhoneNumber.Text = "Phone Number";
-            this.lblPhoneNumber.Click += new System.EventHandler(this.lblPhoneNumber_Click);
             // 
             // txtForename
             // 
@@ -155,7 +154,6 @@
             this.lblAddresses.Size = new System.Drawing.Size(53, 16);
             this.lblAddresses.TabIndex = 68;
             this.lblAddresses.Text = "Address";
-            this.lblAddresses.Click += new System.EventHandler(this.lblAddresses_Click);
             // 
             // txtAddress
             // 
@@ -197,17 +195,6 @@
             this.grpBookings.Text = "Booking Details";
             this.grpBookings.Enter += new System.EventHandler(this.grpBookings_Enter);
             // 
-            // btnConfirmBooking
-            // 
-            this.btnConfirmBooking.Font = new System.Drawing.Font("Modern No. 20", 12F);
-            this.btnConfirmBooking.Location = new System.Drawing.Point(402, 733);
-            this.btnConfirmBooking.Name = "btnConfirmBooking";
-            this.btnConfirmBooking.Size = new System.Drawing.Size(152, 32);
-            this.btnConfirmBooking.TabIndex = 60;
-            this.btnConfirmBooking.Text = "Confirm Booking";
-            this.btnConfirmBooking.UseVisualStyleBackColor = true;
-            this.btnConfirmBooking.Click += new System.EventHandler(this.btnConfirmBooking_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -244,12 +231,25 @@
             this.dtpReturn.Size = new System.Drawing.Size(233, 22);
             this.dtpReturn.TabIndex = 57;
             // 
+            // btnConfirmBooking
+            // 
+            this.btnConfirmBooking.Font = new System.Drawing.Font("Modern No. 20", 12F);
+            this.btnConfirmBooking.Location = new System.Drawing.Point(402, 733);
+            this.btnConfirmBooking.Name = "btnConfirmBooking";
+            this.btnConfirmBooking.Size = new System.Drawing.Size(152, 32);
+            this.btnConfirmBooking.TabIndex = 60;
+            this.btnConfirmBooking.Text = "Confirm Booking";
+            this.btnConfirmBooking.UseVisualStyleBackColor = true;
+            this.btnConfirmBooking.Click += new System.EventHandler(this.btnConfirmBooking_Click);
+            // 
             // txtRerID
             // 
             this.txtRerID.Location = new System.Drawing.Point(149, 462);
             this.txtRerID.Name = "txtRerID";
             this.txtRerID.Size = new System.Drawing.Size(291, 22);
             this.txtRerID.TabIndex = 72;
+            this.txtRerID.ReadOnlyChanged += new System.EventHandler(this.True);
+            this.txtRerID.TextChanged += new System.EventHandler(this.txtCarReg_TextChanged);
             // 
             // frmMakeReservation
             // 

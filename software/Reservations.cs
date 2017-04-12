@@ -19,6 +19,7 @@ namespace software
         private DateTime returnDate;
         private string regPlate;
         private Char status;
+        private DateTime final_return_date = System.DateTime.Today;
 
         //constructor method with 2 args
         public Reservations(DateTime arrivalDate, DateTime returnDate)
@@ -41,6 +42,7 @@ namespace software
 
         }
 
+
         //Setters
         public void setArrivalDate(DateTime arrivalDate) { this.arrivalDate = arrivalDate; }
 
@@ -55,40 +57,8 @@ namespace software
 
         public Char getStatus() { return status; }
 
-        //load reservations
-        /*public static int getNextReservationId()
-        {
-            int nextReservationNo;
-
-            // Open the DB connection
-            OracleConnection conn = new OracleConnection(DBConnect.oradb);
-            conn.Open();
-
-            String selectMaxStmt = "SELECT MAX(reservation_id) FROM Reservations";
-
-            OracleCommand cmd = new OracleCommand(selectMaxStmt, conn);
-
-            OracleDataReader dr = cmd.ExecuteReader();
-
-            // Read the first (only) value returned from the query
-            // If first stockNo, assign value of 1, otherwise add 1
-            dr.Read();
-
-            if (dr.IsDBNull(0))
-            {
-                nextReservationNo = 1;
-            }
-            else
-            {
-                nextReservationNo = Convert.ToInt32(dr.GetValue(0)) + 1;
-            }
-
-            // Close Database
-            conn.Close();
-
-
-            return nextReservationNo;
-        }*/
+         
+        //Method for reservation num
         public static int nextReservationNo()
         {
             // variable to hold value to be returned
@@ -114,6 +84,7 @@ namespace software
             return nextReservationNo;
         }
 
+        //method to take in reservation 
         public void regRes()
         {
             //Connect to DB
@@ -124,9 +95,9 @@ namespace software
             String myRetDate = String.Format("{0:dd-MMM-yy}", returnDate);
 
             //Define SQL Query
-            //int reservation_id, string forename, string surname, string phoneNumber, string address, Char status
+            //int reservation_id, string forename, string surname, string phoneNumber, string address, Char status   
             //String strSQL = "INSERT INTO Reservations("reservation_id + ",'" + this.forename + "','" + this.surname + "','" + this.phoneNumber + "','" + this.address + "'," + " ")";
-            String strSQL = "INSERT INTO Reservations VALUES(" + this.reservation_id + ",'" + this.surname + "','" + this.forename + "','" + this.phoneNumber + "','" + this.address + "','" + myArrDate + "','" + myRetDate + "','"  + this.regPlate +"','" + status + "')";
+            String strSQL = "INSERT INTO Reservations VALUES(" + this.reservation_id + ",,'" + this.forename + "','" + this.phoneNumber + "','" + this.address + "','" + myArrDate + "','" + myRetDate + "','"  + this.regPlate +"','" + status + "','" + myRetDate + "')";
 
             //Execute SQL Query
             OracleCommand cmd = new OracleCommand(strSQL, conn);
@@ -137,6 +108,7 @@ namespace software
 
         }
 
+        //Method to see if car is available for rent
         public static Boolean isCarAvailable(String regNum, DateTime arrivalDate, DateTime returnDate)
         {
             Boolean available = true;
@@ -160,6 +132,71 @@ namespace software
             conn.Close();
 
             return available;
+        }
+
+       
+        public static void deleteReservation(int reservationID)
+        {
+            //Connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+
+            //here needs to be fixed
+            String strSQL = "UPDATE RESERVATIONS SET Status = 'D' WHERE reservation_id = '" + reservationID + "'";
+
+
+            //Execute SQL Query
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
+
+            //Close DB Connection
+            conn.Close();
+
+        }
+        
+        public static void carReturned(int reservationID, DateTime finalReturnDate)
+        {
+            //Connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            String retDate = String.Format("{0:dd-MMM-yy}", finalReturnDate);
+
+
+            //here needs to be fixed
+            String strSQL = "UPDATE RESERVATIONS SET status = 'R', final_return_date = '" + retDate + "' WHERE reservation_id = '" + reservationID + "'";
+
+
+            //Execute SQL Query
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
+
+            //Close DB Connection
+            conn.Close();
+
+        }
+
+       
+        public static void carCollected(int reservationID, DateTime finalReturnDate)
+        {
+            //Connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            String retDate = String.Format("{0:dd-MMM-yy}", finalReturnDate);
+
+
+            //here needs to be fixed
+            String strSQL = "UPDATE RESERVATIONS SET status = 'C' WHERE reservation_id = '" + reservationID + "'";
+
+            //Execute SQL Query
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
+
+            //Close DB Connection
+            conn.Close();
+
         }
 
     }

@@ -20,9 +20,11 @@ namespace software
             this.parent = parent;
 
             //Puts data fro dB into grids
-            grdCars.DataSource = Car.getCars();
-            
-        }      
+            grdCars.DataSource = Car.getAvailableCars();
+
+            dtpArrival.MinDate = DateTime.Now;
+            dtpReturn.MinDate = DateTime.Now;
+        }   
 
         private void btnBack_Click_1(object sender, EventArgs e)
         {
@@ -32,7 +34,7 @@ namespace software
 
          private void frmMakeBooking_Load(object sender, EventArgs e)
         {
-            txtRerID.Text = Reservations.nextReservationNo().ToString("00000");
+            txtRerID.Text = Reservations.nextReservationNo().ToString();
         }
         
         //This puts the registration plate into the txt box - cannot be edit in txt box though
@@ -50,11 +52,6 @@ namespace software
         }
 
         private void grdCars_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void grpCustDetails_Enter(object sender, EventArgs e)
         {
 
         }
@@ -111,57 +108,29 @@ namespace software
 
         private void btnConfirmBooking_Click(object sender, EventArgs e)
         {
-          /*  private int reservation_id;
-        private string forename;
-        private string surname;
-        private string phoneNumber;
-        private string address;
-        private DateTime arrivalDate;
-        private DateTime returnDate;
-        private int customer_id;
-        private string regPlate;
-        private Char status;
-        private string v1;
-        private string v2;
-        private string v3;
-        private string v4;
-        private char v5;
-        */
-
-
-
-        
-       // Reservations res = new Reservations(txtRerID, txtForename,txtSurname, txtPhoneNumber,  txtAddress,  dtpArrival,  dtpReturn,  /*txtCustomerID,*/  txtCarReg /*, txtStatus*/);
-            //res.setArrivalDate(dtpArrival.Value);
-            //res.setReturnDate(dtpReturn.Value);
-
-
             //All fields have to be filled in 
             if (txtForename.Text == "" || txtSurname.Text == "" || txtPhoneNumber.Text == "" || txtAddress.Text == "" )
             {
                 MessageBox.Show("All Fields must be filled");
                 return;
-
             }
+
+            //  TODO: Check that car available on selected days
+            
             //save booking details in DB
             //Instantiate Car object
-            Reservations myRes = new Reservations((txtForename.Text.ToUpper()), (txtSurname.Text.ToUpper()), (txtPhoneNumber.Text.ToUpper()), (txtAddress.Text.ToUpper()), 'R');
+            Reservations myRes = new Reservations(Int32.Parse(txtRerID.Text.ToString()), txtForename.Text.ToUpper(), txtSurname.Text.ToUpper(), txtPhoneNumber.Text.ToUpper(), txtAddress.Text.ToUpper(), dtpArrival.Value, dtpReturn.Value, txtCarReg.Text, 'B');
 
-
-            //Insert Car into CARS table
             myRes.regRes();
 
             //Display Conf Message
-            MessageBox.Show("Customer " + txtForename.Text + txtSurname.Text + " is now Registered", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //MessageBox.Show("Car:  " + txtRegPlate.Text.ToUpper() + "\n Make:  " + cboMake.Text.ToUpper() + "\n Is Now Registered", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Car is now booked", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //reset UI
             txtForename.Text = "";
             txtSurname.Text = "";
             txtPhoneNumber.Text = "";
             txtAddress.Text = "";
-
-            
         }
 
         private void txtCarReg_TextChanged(object sender, EventArgs e)

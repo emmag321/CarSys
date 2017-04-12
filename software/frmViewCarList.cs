@@ -21,7 +21,9 @@ namespace software
             this.parent = parent;
 
             //retrieves info from DB
-            grdViewCarList.DataSource = Car.getCars();
+            //grdViewCarList.DataSource = Car.getCars();
+            grdAvailableCars.DataSource = Car.getAvailableCars();
+            grdRemovedars.DataSource = Car.getRemovedCars();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -45,6 +47,25 @@ namespace software
 
 
        }
-        
+
+        private void grdRemovedars_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void grdAvailableCars_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblAvailableCars_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRemoveCarHeading_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -17,28 +17,18 @@ namespace software
         private string address;
         private DateTime arrivalDate;
         private DateTime returnDate;
-        private int customer_id;
         private string regPlate;
         private Char status;
-        private string v1;
-        private string v2;
-        private string v3;
-        private string v4;
-        private char v5;
-
-
 
         //constructor method with 2 args
         public Reservations(DateTime arrivalDate, DateTime returnDate)
         {
               this.arrivalDate = arrivalDate;
               this.returnDate = returnDate;
-           
         }
 
-        public Reservations(int reservation_id, string forename, string surname, string phoneNumber, string address, DateTime arrivalDate, DateTime returnDate, int customer_id, string regPlate, Char status)
+        public Reservations(int reservation_id, string forename, string surname, string phoneNumber, string address, DateTime arrivalDate, DateTime returnDate, string regPlate, Char status)
         {
-            //this.arrivalDate = arrivalDate;
             this.reservation_id = reservation_id;
             this.forename = forename;
             this.surname = surname;
@@ -46,39 +36,9 @@ namespace software
             this.address = address;
             this.arrivalDate = arrivalDate;
             this.returnDate = returnDate;
-            this.customer_id = customer_id;
             this.regPlate = regPlate;
             this.status = status;
 
-        }
-
-        public Reservations(int reservation_id, string forename, string surname, string phoneNumber, string address, Char status)
-        {
-            //this.arrivalDate = arrivalDate;
-            this.reservation_id = reservation_id;
-            this.forename = forename;
-            this.surname = surname;
-            this.phoneNumber = phoneNumber;
-            this.address = address;
-            this.status = status;
-
-        }
-
-        public Reservations(string v1, string v2, string v3, string v4, char v5)
-        {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.v3 = v3;
-            this.v4 = v4;
-            this.v5 = v5;
-        }
-
-        public Reservations(string v1, string v2, string v3, string v4)
-        {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.v3 = v3;
-            this.v4 = v4;
         }
 
         //Setters
@@ -160,13 +120,13 @@ namespace software
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
-            //String myArrDate = String.Format("{0:dd-MMM-yy}", dtpArrival.Value);
-            //String myRetDate = String.Format("{0:dd-MMM-yy}", dateTimePicker2.Value);
+            String myArrDate = String.Format("{0:dd-MMM-yy}", arrivalDate);
+            String myRetDate = String.Format("{0:dd-MMM-yy}", returnDate);
 
             //Define SQL Query
             //int reservation_id, string forename, string surname, string phoneNumber, string address, Char status
             //String strSQL = "INSERT INTO Reservations("reservation_id + ",'" + this.forename + "','" + this.surname + "','" + this.phoneNumber + "','" + this.address + "'," + " ")";
-            String strSQL = "INSERT INTO Reservations VALUES(" + this.reservation_id + ",'" + this.surname + "','" + this.forename + "','" + this.phoneNumber + "','" + this.address + "','" + this.arrivalDate + "','" + this.returnDate + "','" + this.customer_id + "','" + this.regPlate +"','" + "')";
+            String strSQL = "INSERT INTO Reservations VALUES(" + this.reservation_id + ",'" + this.surname + "','" + this.forename + "','" + this.phoneNumber + "','" + this.address + "','" + myArrDate + "','" + myRetDate + "','"  + this.regPlate +"','" + status + "')";
 
             //Execute SQL Query
             OracleCommand cmd = new OracleCommand(strSQL, conn);

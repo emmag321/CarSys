@@ -195,7 +195,7 @@ namespace software
 
         }
 
-        //Retrieves cars details from DB 
+        //Retrieves all cars details from DB 
         public static DataTable getCars()
         {
             //connect to DB
@@ -217,7 +217,52 @@ namespace software
             return DS.Tables["cars"];
         }
 
-       
+
+        //Retrieves available cars details from DB 
+        public static DataTable getAvailableCars()
+        {
+            //connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL Query
+            String strSQL = "SELECT * FROM Cars WHERE status = 'A'";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet DS = new DataSet();
+            da.Fill(DS, "cars");
+
+            conn.Close();
+
+
+            return DS.Tables["cars"];
+        }
+
+        //Retrieves removed cars details from DB 
+        public static DataTable getRemovedCars()
+        {
+            //connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL Query
+            String strSQL = "SELECT * FROM Cars WHERE status = 'R'";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet DS = new DataSet();
+            da.Fill(DS, "cars");
+
+            conn.Close();
+
+
+            return DS.Tables["cars"];
+        }
+
+
         /********** setters *********/ //this part will access the varibles and change them directly
 
 

@@ -99,6 +99,7 @@ namespace software
                 this.numDoors = Convert.ToInt32(dr.GetValue(3));
                 this.make = dr.GetString(4);
                 this.model = dr.GetString(5);
+                this.status = dr.GetString(6).ToCharArray()[0];
             }
 
             // close DB
@@ -181,8 +182,8 @@ namespace software
 
 
             //here needs to be fixed
-            String strSQL = "UPDATE INTO Cars ('" + this.regPlate + "','" + this.carClass +
-                "','" + this.FuelType + "'," + this.numDoors + ",'" + this.make + "','" + this.model + "','A')";
+            String strSQL = "UPDATE Cars SET regplate = '" + this.regPlate + "', carclass = '" + this.carClass +
+                "', fueltype = '" + this.FuelType + "', nodoors = " + this.numDoors + ", make = '" + this.make + "', model = '" + this.model + "', status = '" + this.status + "' WHERE regplate = '" + RegPlate + "'";
 
 
             //Execute SQL Query

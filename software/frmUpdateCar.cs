@@ -12,6 +12,7 @@ namespace software
 {
     public partial class frmUpdateCar : Form
     {
+        Car myCar = new Car();
         private frmMain parent;
         //code for menu
         public frmUpdateCar(frmMain parent)
@@ -45,7 +46,7 @@ namespace software
             
             //validate data
             //retrieve car details from DB
-            Car myCar = new Car();
+            
             myCar.getCarDetails(txtSearch.Text);
 
             if (myCar.getRegPlate().Equals(""))
@@ -72,10 +73,11 @@ namespace software
             loadFuelTypes(myCar.getFuelType());
 
 
-
             //Set Num Doors
             loadNumDoors(myCar.getNumDoors().ToString());
-           
+
+            loadStatus(myCar.getStatus().ToString());
+
             //Set makes 
             loadMake(myCar.getMake());
 
@@ -111,6 +113,15 @@ namespace software
             }*/
 
             cboNumDoors.SelectedIndex = cboNumDoors.FindString(numDoors);
+        }
+
+        //Puts Status into Update form
+        public void loadStatus(String status)
+        {
+            cboStatus.Items.Add("A");
+            cboStatus.Items.Add("R");
+
+            cboStatus.SelectedIndex = cboStatus.FindString(status);
         }
 
 
@@ -190,11 +201,19 @@ namespace software
                 return;
 
             }
+
+            if (myCar.getRegPlate() != txtRegPlate.Text.ToString() && Car.alreadyRegistered(txtRegPlate.Text.ToString()))
+            {
+                MessageBox.Show("A Car with the same registration plate has already been registered");
+                return;
+            }
            
-            Car myCar = new Car((txtRegPlate.Text.ToUpper()), Convert.ToChar(cboClasses.Text.Substring(0, 1)), Convert.ToChar(cboFuelTypes.Text.Substring(0, 1)), Convert.ToInt32(cboNumDoors.Text.Substring(0, 1)), cboMake.Text, (txtModel.Text.ToUpper()), 'A');
+            Car updatedCar = new Car((txtRegPlate.Text.ToUpper()), Convert.ToChar(cboClasses.Text.Substring(0, 1)), Convert.ToChar(cboFuelTypes.Text.Substring(0, 1)), Convert.ToInt32(cboNumDoors.Text.Substring(0, 1)), cboMake.Text, (txtModel.Text.ToUpper()), 'A');
 
             //Need code to put back into DB 
-            myCar.updateCars(myCar.getRegPlate());
+            updatedCar.updateCars(myCar.getRegPlate());
+
+            MessageBox.Show("Car successfully updated");
 
         }
 

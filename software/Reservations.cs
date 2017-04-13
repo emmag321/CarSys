@@ -19,7 +19,7 @@ namespace software
         private DateTime returnDate;
         private string regPlate;
         private Char status;
-        private DateTime final_return_date = System.DateTime.Today;
+        private DateTime myRetDate = System.DateTime.Today;
 
         //constructor method with 2 args
         public Reservations(DateTime arrivalDate, DateTime returnDate)
@@ -97,7 +97,7 @@ namespace software
             //Define SQL Query
             //int reservation_id, string forename, string surname, string phoneNumber, string address, Char status   
             //String strSQL = "INSERT INTO Reservations("reservation_id + ",'" + this.forename + "','" + this.surname + "','" + this.phoneNumber + "','" + this.address + "'," + " ")";
-            String strSQL = "INSERT INTO Reservations VALUES(" + this.reservation_id + ",,'" + this.forename + "','" + this.phoneNumber + "','" + this.address + "','" + myArrDate + "','" + myRetDate + "','"  + this.regPlate +"','" + status + "','" + myRetDate + "')";
+            String strSQL = "INSERT INTO Reservations VALUES(" + this.reservation_id + ",'" + this.forename + "','" + this.surname + "','" + this.phoneNumber + "','" + this.address + "','" + myArrDate + "','" + myRetDate + "','"  + this.regPlate +"','" + this.status + "','" + myRetDate + "')";
 
             //Execute SQL Query
             OracleCommand cmd = new OracleCommand(strSQL, conn);
@@ -198,6 +198,8 @@ namespace software
             conn.Close();
 
         }
+
+      
 
     }
 }

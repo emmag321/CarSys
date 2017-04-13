@@ -57,6 +57,7 @@ namespace software
             this.grdRemoveCar.Size = new System.Drawing.Size(829, 292);
             this.grdRemoveCar.TabIndex = 42;
             this.grdRemoveCar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdRemoveCar_CellClick);
+            this.grdRemoveCar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdRemoveCar_CellContentClick);
             // 
             // grdBtnDelete
             // 
@@ -114,6 +115,11 @@ namespace software
                 }
             }
             
+        }
+
+        private void grdRemoveCar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

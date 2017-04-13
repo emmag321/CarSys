@@ -48,12 +48,32 @@ namespace software
 
         private void grdCancelBooking_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            /*if (e.ColumnIndex == 0)
+            {
+                if (grdCancelBooking.Rows[e.RowIndex].Cells[7].Value.ToString() != "R")
+                {
+                    DialogResult confirmResult = MessageBox.Show("Are you sure to remove this Car?", "Confirm Remove", MessageBoxButtons.YesNo);
+
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        Car.deleteCars(grdCancelBooking.Rows[e.RowIndex].Cells[1].Value.ToString());
+                        grdCancelBooking.DataSource = Car.getCars();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Car has already been removed");
+                }*/
+            
 
         }
 
-        private void btnCancelBooking_Click(object sender, EventArgs e)
+    }
+
+    /*private void btnCancelBooking_Click(object sender, EventArgs e)
         {
 
-        }
+        }*/
     }
-}
+
+

@@ -207,13 +207,27 @@ namespace software
                 MessageBox.Show("A Car with the same registration plate has already been registered");
                 return;
             }
-           
+
             Car updatedCar = new Car((txtRegPlate.Text.ToUpper()), Convert.ToChar(cboClasses.Text.Substring(0, 1)), Convert.ToChar(cboFuelTypes.Text.Substring(0, 1)), Convert.ToInt32(cboNumDoors.Text.Substring(0, 1)), cboMake.Text, (txtModel.Text.ToUpper()), 'A');
 
             //Need code to put back into DB 
             updatedCar.updateCars(myCar.getRegPlate());
 
             MessageBox.Show("Car successfully updated");
+
+            //reset UI
+            //txtForename.Text = "";
+            txtRegPlate.Text = "";
+            cboClasses.SelectedIndex = -1;
+            cboFuelTypes.SelectedIndex = -1;
+            cboFuelTypes.SelectedIndex = -1;
+            cboMake.SelectedIndex = -1;
+            cboMake.SelectedIndex = -1;
+            txtModel.Text = "";
+            cboNumDoors.SelectedIndex = -1;
+            cboStatus.SelectedIndex = -1;
+            txtSearch.Text = "";
+
 
         }
 

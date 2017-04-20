@@ -31,7 +31,6 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.grdCars = new System.Windows.Forms.DataGridView();
             this.txtCarReg = new System.Windows.Forms.TextBox();
-            this.lblCarReg = new System.Windows.Forms.Label();
             this.lblSurname = new System.Windows.Forms.Label();
             this.lblForename = new System.Windows.Forms.Label();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
@@ -48,6 +47,8 @@
             this.dtpReturn = new System.Windows.Forms.DateTimePicker();
             this.btnConfirmBooking = new System.Windows.Forms.Button();
             this.txtRerID = new System.Windows.Forms.TextBox();
+            this.lblCarReg = new System.Windows.Forms.Label();
+            this.lblBookingId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdCars)).BeginInit();
             this.grpCustDetails.SuspendLayout();
             this.grpBookings.SuspendLayout();
@@ -83,15 +84,6 @@
             this.txtCarReg.Size = new System.Drawing.Size(291, 22);
             this.txtCarReg.TabIndex = 53;
             this.txtCarReg.TextChanged += new System.EventHandler(this.txtCarReg_TextChanged);
-            // 
-            // lblCarReg
-            // 
-            this.lblCarReg.AutoSize = true;
-            this.lblCarReg.Location = new System.Drawing.Point(481, 441);
-            this.lblCarReg.Name = "lblCarReg";
-            this.lblCarReg.Size = new System.Drawing.Size(98, 16);
-            this.lblCarReg.TabIndex = 52;
-            this.lblCarReg.Text = "Car Registration";
             // 
             // lblSurname
             // 
@@ -244,12 +236,30 @@
             // 
             // txtRerID
             // 
-            this.txtRerID.Location = new System.Drawing.Point(149, 462);
+            this.txtRerID.Location = new System.Drawing.Point(135, 441);
             this.txtRerID.Name = "txtRerID";
             this.txtRerID.Size = new System.Drawing.Size(291, 22);
             this.txtRerID.TabIndex = 72;
             this.txtRerID.ReadOnlyChanged += new System.EventHandler(this.True);
             this.txtRerID.TextChanged += new System.EventHandler(this.txtCarReg_TextChanged);
+            // 
+            // lblCarReg
+            // 
+            this.lblCarReg.AutoSize = true;
+            this.lblCarReg.Location = new System.Drawing.Point(481, 441);
+            this.lblCarReg.Name = "lblCarReg";
+            this.lblCarReg.Size = new System.Drawing.Size(98, 16);
+            this.lblCarReg.TabIndex = 52;
+            this.lblCarReg.Text = "Car Registration";
+            // 
+            // lblBookingId
+            // 
+            this.lblBookingId.AutoSize = true;
+            this.lblBookingId.Location = new System.Drawing.Point(31, 441);
+            this.lblBookingId.Name = "lblBookingId";
+            this.lblBookingId.Size = new System.Drawing.Size(74, 16);
+            this.lblBookingId.TabIndex = 73;
+            this.lblBookingId.Text = "Booking ID";
             // 
             // frmMakeReservation
             // 
@@ -257,6 +267,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(955, 800);
+            this.Controls.Add(this.lblBookingId);
             this.Controls.Add(this.btnConfirmBooking);
             this.Controls.Add(this.txtRerID);
             this.Controls.Add(this.grpBookings);
@@ -283,7 +294,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridView grdCars;
         private System.Windows.Forms.TextBox txtCarReg;
-        private System.Windows.Forms.Label lblCarReg;
         private System.Windows.Forms.Label lblSurname;
         private System.Windows.Forms.Label lblForename;
         private System.Windows.Forms.Label lblPhoneNumber;
@@ -300,5 +310,7 @@
         private System.Windows.Forms.DateTimePicker dtpReturn;
         private System.Windows.Forms.Button btnConfirmBooking;
         private System.Windows.Forms.TextBox txtRerID;
+        private System.Windows.Forms.Label lblCarReg;
+        private System.Windows.Forms.Label lblBookingId;
     }
 }

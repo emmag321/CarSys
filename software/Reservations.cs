@@ -1,6 +1,7 @@
 ﻿using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,6 +109,27 @@ namespace software
 
         }
 
+        //This method will mark booking as 'D'
+        public static void cancelBooking(String RegPlate)
+        {
+            //Connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+
+            //here needs to be fixed
+            String strSQL = "UPDATE Reservations SET Status = 'D' WHERE RegPlate = '" + RegPlate + "'";
+
+
+            //Execute SQL Query
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
+
+            //Close DB Connection
+            conn.Close();
+
+        }
+
         //Method to see if car is available for rent
         public static Boolean isCarAvailable(String regNum, DateTime arrivalDate, DateTime returnDate)
         {
@@ -134,27 +156,50 @@ namespace software
             return available;
         }
 
-       
-        public static void deleteReservation(int reservationID)
+
+        /* public static void deleteReservation(int reservationID)
+         {
+             //Connect to DB
+             OracleConnection conn = new OracleConnection(DBConnect.oradb);
+             conn.Open();
+
+
+             //here needs to be fixed
+             String strSQL = "UPDATE RESERVATIONS SET Status = 'D' WHERE reservation_id = '" + reservationID + "'";
+
+
+             //Execute SQL Query
+             OracleCommand cmd = new OracleCommand(strSQL, conn);
+             cmd.ExecuteNonQuery();
+
+             //Close DB Connection
+             conn.Close();
+
+         }*/
+
+        public static DataTable getReservations()
         {
-            //Connect to DB
+            //connect to DB
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
-
-            //here needs to be fixed
-            String strSQL = "UPDATE RESERVATIONS SET Status = 'D' WHERE reservation_id = '" + reservationID + "'";
-
-
-            //Execute SQL Query
+            //Define SQL Query
+            String strSQL = "SELECT * FROM Reservations";
             OracleCommand cmd = new OracleCommand(strSQL, conn);
-            cmd.ExecuteNonQuery();
 
-            //Close DB Connection
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet DS = new DataSet();
+            da.Fill(DS, "cars");
+
             conn.Close();
 
+
+            return DS.Tables["cars"];
         }
-        
+
+
+
         public static void carReturned(int reservationID, DateTime finalReturnDate)
         {
             //Connect to DB

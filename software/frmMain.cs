@@ -42,7 +42,7 @@ namespace software
         private void btnCancelBooking_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmCancelBooking frmNext = new frmCancelBooking(this);
+            frmCancelReservations frmNext = new frmCancelReservations(this);
             frmNext.Show();
         }
 

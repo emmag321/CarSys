@@ -59,11 +59,11 @@
     <Compile Include="frmAddCar.Designer.cs">
       <DependentUpon>frmAddCar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCancelBooking.cs">
+    <Compile Include="frmCancelReservations.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCancelBooking.Designer.cs">
-      <DependentUpon>frmCancelBooking.cs</DependentUpon>
+    <Compile Include="frmCancelReservations.Designer.cs">
+      <DependentUpon>frmCancelReservations.cs</DependentUpon>
     </Compile>
     <Compile Include="Car.cs" />
     <Compile Include="frmCollectCar.cs">
@@ -122,8 +122,8 @@
     <EmbeddedResource Include="frmAddCar.resx">
       <DependentUpon>frmAddCar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCancelBooking.resx">
-      <DependentUpon>frmCancelBooking.cs</DependentUpon>
+    <EmbeddedResource Include="frmCancelReservations.resx">
+      <DependentUpon>frmCancelReservations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCollectCar.resx">
       <DependentUpon>frmCollectCar.cs</DependentUpon>

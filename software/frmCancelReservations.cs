@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace software
 {
-    public partial class frmCancelBooking : Form
+    public partial class frmCancelReservations : Form
     {
         private frmMain parent;
 
 
-        public frmCancelBooking(frmMain parent)
+        public frmCancelReservations(frmMain parent)
         {
             InitializeComponent();
             this.parent = parent;
 
-            grdCancelBooking.DataSource = Car.getCars();
-            //grdCancelBooking.DataSource = Car.deleteReservation();
+            grdCancelBooking.DataSource = Reservations.getReservations();
+            //grdCancelBooking.DataSource = Reservations.deleteReservation();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,32 +48,31 @@ namespace software
 
         private void grdCancelBooking_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*if (e.ColumnIndex == 0)
+            if (e.ColumnIndex == 0)
             {
-                if (grdCancelBooking.Rows[e.RowIndex].Cells[7].Value.ToString() != "R")
+                if (grdCancelBooking.Rows[e.RowIndex].Cells[7].Value.ToString() != "D")
                 {
-                    DialogResult confirmResult = MessageBox.Show("Are you sure to remove this Car?", "Confirm Remove", MessageBoxButtons.YesNo);
+                    DialogResult confirmResult = MessageBox.Show("Are you sure you want to cancel this Reservstion?", "Confirm Cancelation", MessageBoxButtons.YesNo);
 
                     if (confirmResult == DialogResult.Yes)
                     {
-                        Car.deleteCars(grdCancelBooking.Rows[e.RowIndex].Cells[1].Value.ToString());
-                        grdCancelBooking.DataSource = Car.getCars();
+                        Reservations.cancelBooking(grdCancelBooking.Rows[e.RowIndex].Cells[1].Value.ToString());
+                        grdCancelBooking.DataSource = Reservations.getReservations();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Car has already been removed");
-                }*/
-            
+                    MessageBox.Show("Booking has been Cancelled!!");
+                }
+            }
 
         }
 
-    }
+        /*private void btnCancelBooking_Click(object sender, EventArgs e)
+            {
 
-    /*private void btnCancelBooking_Click(object sender, EventArgs e)
-        {
-
-        }*/
+            }*/
     }
+}
 
 

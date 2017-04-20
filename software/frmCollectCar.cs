@@ -34,6 +34,24 @@ namespace software
 
         private void frmCollectCar_Load(object sender, EventArgs e)
         {
+            /*{
+                if (e.ColumnIndex == 0)
+                 {
+                     if (grdCollectCar.Rows[e.RowIndex].Cells[7].Value.ToString() != "D")
+                     {
+                         DialogResult confirmResult = MessageBox.Show("Are you sure you want to cancel this Reservstion?", "Confirm Cancelation", MessageBoxButtons.YesNo);
+
+                         if (confirmResult == DialogResult.Yes)
+                         {
+                             Reservations.cancelBooking(grdCancelBooking.Rows[e.RowIndex].Cells[1].Value.ToString());
+                             grdCancelBooking.DataSource = Reservations.getReservations();
+                         }
+                     }
+                     else
+                     {
+                         MessageBox.Show("Booking has been Cancelled!!");
+                     }
+                 }*/
 
         }
 

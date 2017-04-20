@@ -84,13 +84,13 @@ namespace software
         private void btnConfirmBooking_Click(object sender, EventArgs e)
         {
             //All fields have to be filled in 
-            if (txtForename.Text == "" || txtSurname.Text == "" || txtPhoneNumber.Text == "" || txtAddress.Text == "" )
+            if (txtForename.Text == "" || txtSurname.Text == "" || txtPhoneNumber.Text == "" || txtAddress.Text == "" || txtCarReg.Text == "")
             {
-                MessageBox.Show("All Fields must be filled");
+                MessageBox.Show("All Fields must be filled inorder to complete booking!");
                 return;
             }
 
-            
+
             // Check that return date is after arrivalDate
             if (dtpArrival.Value.AddDays(1) > dtpReturn.Value.AddSeconds(1))
             {
@@ -101,15 +101,17 @@ namespace software
             //  Check that car available on selected days
             if (!Reservations.isCarAvailable(txtCarReg.Text, dtpArrival.Value, dtpReturn.Value))
             {
-                MessageBox.Show("Car is not available on the selected dates");
-                return;
+               
+                        MessageBox.Show("Car is not available on the selected dates");
+                        return;
+             
             }
 
             //save booking details in DB
             //Instantiate Car object
             Reservations myRes = new Reservations(Int32.Parse(txtRerID.Text.ToString()), txtForename.Text.ToUpper(), txtSurname.Text.ToUpper(), txtPhoneNumber.Text.ToUpper(), txtAddress.Text.ToUpper(), dtpArrival.Value, dtpReturn.Value, txtCarReg.Text, 'B');
 
-            myRes.regRes();
+            //myRes.regRes();
 
             //Display Conf Message
             MessageBox.Show("Car is now booked", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -119,7 +121,12 @@ namespace software
             txtSurname.Text = "";
             txtPhoneNumber.Text = "";
             txtAddress.Text = "";
+            txtCarReg.Text = "";
+            txtRerID.Text = "";
+            dtpReturn.Text = "";
+            dtpArrival.Text = "";
         }
+
 
         private void txtCarReg_TextChanged(object sender, EventArgs e)
         {

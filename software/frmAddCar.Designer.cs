@@ -124,6 +124,7 @@ namespace software
             this.txtRegPlate.Name = "txtRegPlate";
             this.txtRegPlate.Size = new System.Drawing.Size(147, 20);
             this.txtRegPlate.TabIndex = 27;
+            this.txtRegPlate.TextChanged += new System.EventHandler(this.txtRegPlate_TextChanged);
             // 
             // lblMake
             // 
@@ -193,6 +194,7 @@ namespace software
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(147, 20);
             this.txtModel.TabIndex = 39;
+            this.txtModel.TextChanged += new System.EventHandler(this.txtModel_TextChanged);
             // 
             // frmAddCar
             // 

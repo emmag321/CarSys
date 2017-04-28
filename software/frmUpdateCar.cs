@@ -172,6 +172,24 @@ namespace software
             cboStatus.SelectedIndex = -1;  //putting cbo boxes back to blank by putting -1 
             txtSearch.Text = "";
         }
+
+        private void txtRegPlate_TextChanged(object sender, EventArgs e)
+        {
+            //ensures only upper case appears in txt box
+            txtRegPlate.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void txtModel_TextChanged(object sender, EventArgs e)
+        {
+            //ensures only upper case appears in txt box
+            txtModel.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            //ensures only upper case appears in txt box
+            txtSearch.CharacterCasing = CharacterCasing.Upper;
+        }
     }
 }
 

@@ -54,6 +54,7 @@ namespace software
  
         private void btnAddCar_Click(object sender, EventArgs e)
         {
+
             //validate registration plate
             if (!isValidReg(txtRegPlate.Text))
             {
@@ -62,6 +63,8 @@ namespace software
                 return;
             }
 
+
+           
             //All fields have to be filled in 
             if (cboNumDoors.Text == "" || cboFuelTypes.Text == "" || cboClasses.Text == "" || txtRegPlate.Text == ""  || cboMake.Text == "" || txtModel.Text == "")
             {
@@ -120,6 +123,18 @@ namespace software
         {
             parent.Show();
             this.Dispose();
+        }
+
+        private void txtRegPlate_TextChanged(object sender, EventArgs e)
+        {
+            //ensures only upper case appears in txt box
+            txtRegPlate.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void txtModel_TextChanged(object sender, EventArgs e)
+        {
+            //ensures only upper case appears in txt box
+            txtModel.CharacterCasing = CharacterCasing.Upper;
         }
     }
 }

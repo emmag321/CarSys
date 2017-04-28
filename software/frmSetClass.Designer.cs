@@ -46,6 +46,7 @@
             this.txtClassCode.Name = "txtClassCode";
             this.txtClassCode.Size = new System.Drawing.Size(26, 19);
             this.txtClassCode.TabIndex = 10;
+            this.txtClassCode.TextChanged += new System.EventHandler(this.txtClassCode_TextChanged);
             // 
             // txtRate
             // 
@@ -118,6 +119,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(96, 19);
             this.txtDescription.TabIndex = 20;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // lblDescription
             // 

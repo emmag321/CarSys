@@ -89,6 +89,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(135, 20);
             this.txtSearch.TabIndex = 2;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // grpCar
             // 
@@ -141,6 +142,7 @@
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(147, 22);
             this.txtModel.TabIndex = 50;
+            this.txtModel.TextChanged += new System.EventHandler(this.txtModel_TextChanged);
             // 
             // cboMake
             // 
@@ -188,6 +190,7 @@
             this.txtRegPlate.Name = "txtRegPlate";
             this.txtRegPlate.Size = new System.Drawing.Size(147, 22);
             this.txtRegPlate.TabIndex = 44;
+            this.txtRegPlate.TextChanged += new System.EventHandler(this.txtRegPlate_TextChanged);
             // 
             // lblCarClasses
             // 

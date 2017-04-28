@@ -32,7 +32,7 @@ namespace software
             this.Dispose();
         }
 
-
+        //reservation id loads it
          private void frmMakeBooking_Load(object sender, EventArgs e)
         {
             txtRerID.Text = Reservations.nextReservationNo().ToString();
@@ -128,6 +128,24 @@ namespace software
         {
             grdCars.DataSource = Reservations.availableCars(dtpArrival.Value, dtpReturn.Value);
 
+        }
+
+        private void txtForename_TextChanged(object sender, EventArgs e)
+        {
+            //ensures only upper case appears in txt box
+            txtForename.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void txtSurname_TextChanged(object sender, EventArgs e)
+        {
+            //ensures only upper case appears in txt box
+            txtSurname.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+            //ensures only upper case appears in txt box
+            txtAddress.CharacterCasing = CharacterCasing.Upper;
         }
     }
 }

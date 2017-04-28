@@ -73,6 +73,18 @@ namespace software
             parent.Show();
             this.Dispose();
         }
+
+        private void txtClassCode_TextChanged(object sender, EventArgs e)
+        {
+            //ensures only upper case ONLY appears in txt box
+            txtClassCode.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+            //ensures only upper case ONLY appears in txt box
+            txtDescription.CharacterCasing = CharacterCasing.Upper;
+        }
     }
 }
 

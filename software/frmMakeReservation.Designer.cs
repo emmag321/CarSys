@@ -118,6 +118,7 @@
             this.txtForename.Name = "txtForename";
             this.txtForename.Size = new System.Drawing.Size(291, 22);
             this.txtForename.TabIndex = 65;
+            this.txtForename.TextChanged += new System.EventHandler(this.txtForename_TextChanged);
             // 
             // txtSurname
             // 
@@ -125,6 +126,7 @@
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(291, 22);
             this.txtSurname.TabIndex = 66;
+            this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
             // 
             // txtPhoneNumber
             // 
@@ -148,6 +150,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(291, 22);
             this.txtAddress.TabIndex = 69;
+            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // grpCustDetails
             // 

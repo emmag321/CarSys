@@ -78,9 +78,12 @@
             // 
             // grdRes
             // 
+            this.grdRes.AllowUserToAddRows = false;
+            this.grdRes.AllowUserToDeleteRows = false;
             this.grdRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdRes.Location = new System.Drawing.Point(38, 202);
             this.grdRes.Name = "grdRes";
+            this.grdRes.ReadOnly = true;
             this.grdRes.Size = new System.Drawing.Size(299, 388);
             this.grdRes.TabIndex = 44;
             // 

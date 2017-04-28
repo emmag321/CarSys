@@ -96,7 +96,7 @@
             this.Controls.Add(this.grdRemovedars);
             this.Controls.Add(this.btnBack);
             this.Name = "frmViewCarList";
-            this.Text = "ViewCarList";
+            this.Text = "View Car List";
             ((System.ComponentModel.ISupportInitialize)(this.grdRemovedars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdAvailableCars)).EndInit();
             this.ResumeLayout(false);

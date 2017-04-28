@@ -62,6 +62,8 @@ namespace software
         //button to submit reservation - has all validation etc.
         private void btnConfirmBooking_Click(object sender, EventArgs e)
         {
+            double txtPhoneNumberVal;
+
             //All fields have to be filled in 
             if (txtForename.Text == "" || txtSurname.Text == "" || txtPhoneNumber.Text == "" || txtAddress.Text == "" || txtCarReg.Text == "")
             {
@@ -74,6 +76,19 @@ namespace software
             if (dtpArrival.Value.AddDays(1) > dtpReturn.Value.AddSeconds(1))
             {
                 MessageBox.Show("Return date must be after arrival date");
+                return;
+            }
+
+            //Makes sure phone number is a number 
+            else if (!double.TryParse(txtPhoneNumber.Text, out txtPhoneNumberVal))
+            {
+                MessageBox.Show("Phone Number must be DIGITS!!!");
+                return;
+            }
+
+            if (txtPhoneNumber.Text.Length > 10)
+            {
+                MessageBox.Show("Phone Number can only be 10 digits long!!!");
                 return;
             }
 
@@ -98,7 +113,7 @@ namespace software
             dtpReturn.Text = "";
             dtpArrival.Text = "";
 
-
+            //nxt res_ID 
             txtRerID.Text = Reservations.nextReservationNo().ToString();
         }
 

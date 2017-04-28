@@ -21,7 +21,6 @@ namespace software
             this.parent = parent;
 
             //retrieves info from DB
-            //grdViewCarList.DataSource = Car.getCars();
             grdAvailableCars.DataSource = Car.getAvailableCars();
             grdRemovedars.DataSource = Car.getRemovedCars();
         }

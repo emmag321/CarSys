@@ -44,7 +44,7 @@ namespace software
             //get Data in grid
             try
             {
-                //use getTables() method to get the data
+                //use getReservations() method to get the data
                 DataSet myDS = new DataSet();
 
                 //Load data into grid

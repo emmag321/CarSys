@@ -216,7 +216,7 @@ namespace software
             this.Controls.Add(this.cboClasses);
             this.Controls.Add(this.cboFuelTypes);
             this.Name = "frmAddCar";
-            this.Text = "AddCar";
+            this.Text = "Add a Car";
             this.Load += new System.EventHandler(this.AddCar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

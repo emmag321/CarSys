@@ -179,6 +179,7 @@
             this.grpBookings.TabIndex = 71;
             this.grpBookings.TabStop = false;
             this.grpBookings.Text = "Booking Details";
+            // 
             // btnAvailable
             // 
             this.btnAvailable.Location = new System.Drawing.Point(97, 143);

@@ -125,28 +125,28 @@
             // btnMakeBooking
             // 
             this.btnMakeBooking.Name = "btnMakeBooking";
-            this.btnMakeBooking.Size = new System.Drawing.Size(182, 22);
-            this.btnMakeBooking.Text = "Make a Booking";
+            this.btnMakeBooking.Size = new System.Drawing.Size(203, 22);
+            this.btnMakeBooking.Text = "Make a Reservation";
             this.btnMakeBooking.Click += new System.EventHandler(this.btnMakeBooking_Click);
             // 
             // btnCancelBooking
             // 
             this.btnCancelBooking.Name = "btnCancelBooking";
-            this.btnCancelBooking.Size = new System.Drawing.Size(182, 22);
+            this.btnCancelBooking.Size = new System.Drawing.Size(203, 22);
             this.btnCancelBooking.Text = "Cancel Booking";
             this.btnCancelBooking.Click += new System.EventHandler(this.btnCancelBooking_Click);
             // 
             // btnCollectCar
             // 
             this.btnCollectCar.Name = "btnCollectCar";
-            this.btnCollectCar.Size = new System.Drawing.Size(182, 22);
+            this.btnCollectCar.Size = new System.Drawing.Size(203, 22);
             this.btnCollectCar.Text = "Collect Car";
             this.btnCollectCar.Click += new System.EventHandler(this.btnCollectCar_Click);
             // 
             // btnReturnCar
             // 
             this.btnReturnCar.Name = "btnReturnCar";
-            this.btnReturnCar.Size = new System.Drawing.Size(182, 22);
+            this.btnReturnCar.Size = new System.Drawing.Size(203, 22);
             this.btnReturnCar.Text = "Return Car";
             this.btnReturnCar.Click += new System.EventHandler(this.btnReturnCar_Click);
             // 
@@ -157,8 +157,8 @@
             this.btnCarAnalysis});
             this.btnManageFin.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageFin.Name = "btnManageFin";
-            this.btnManageFin.Size = new System.Drawing.Size(133, 22);
-            this.btnManageFin.Text = "Manage Finances";
+            this.btnManageFin.Size = new System.Drawing.Size(131, 22);
+            this.btnManageFin.Text = "Manage Analysis";
             // 
             // btnResAnal
             // 
@@ -202,7 +202,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
-            this.Text = "CARCOOL RENTALS";
+            this.Text = "CARSYS MAIN MENU";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -66,7 +66,6 @@
             this.lblRate.Size = new System.Drawing.Size(34, 16);
             this.lblRate.TabIndex = 17;
             this.lblRate.Text = "Rate";
-            this.lblRate.Click += new System.EventHandler(this.lblRate_Click);
             // 
             // lblClassCode
             // 
@@ -78,7 +77,6 @@
             this.lblClassCode.Size = new System.Drawing.Size(66, 16);
             this.lblClassCode.TabIndex = 15;
             this.lblClassCode.Text = "Class Code";
-            this.lblClassCode.Click += new System.EventHandler(this.lblClassCode_Click);
             // 
             // btnSet
             // 
@@ -112,7 +110,6 @@
             this.lblCreateCarClass.Size = new System.Drawing.Size(204, 24);
             this.lblCreateCarClass.TabIndex = 19;
             this.lblCreateCarClass.Text = "Please Create Car Class";
-            this.lblCreateCarClass.Click += new System.EventHandler(this.lblCreateCarClass_Click);
             // 
             // txtDescription
             // 
@@ -121,7 +118,6 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(96, 19);
             this.txtDescription.TabIndex = 20;
-            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // lblDescription
             // 
@@ -133,7 +129,6 @@
             this.lblDescription.Size = new System.Drawing.Size(73, 16);
             this.lblDescription.TabIndex = 21;
             this.lblDescription.Text = "Description";
-            this.lblDescription.Click += new System.EventHandler(this.lblDescription_Click);
             // 
             // frmSetClass
             // 
@@ -155,7 +150,6 @@
             this.HelpButton = true;
             this.Name = "frmSetClass";
             this.Text = "Create Car Class";
-            this.Load += new System.EventHandler(this.CarClass_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

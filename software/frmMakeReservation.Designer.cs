@@ -41,6 +41,7 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.grpCustDetails = new System.Windows.Forms.GroupBox();
             this.grpBookings = new System.Windows.Forms.GroupBox();
+            this.btnAvailable = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpArrival = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -68,20 +69,19 @@
             // grdCars
             // 
             this.grdCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdCars.Location = new System.Drawing.Point(34, 75);
+            this.grdCars.Location = new System.Drawing.Point(14, 344);
             this.grdCars.Name = "grdCars";
             this.grdCars.ShowEditingIcon = false;
-            this.grdCars.Size = new System.Drawing.Size(874, 323);
+            this.grdCars.Size = new System.Drawing.Size(952, 323);
             this.grdCars.TabIndex = 49;
             this.grdCars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCars_CellClick);
-            this.grdCars.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCars_CellContentClick);
             // 
             // txtCarReg
             // 
             this.txtCarReg.Enabled = false;
-            this.txtCarReg.Location = new System.Drawing.Point(584, 437);
+            this.txtCarReg.Location = new System.Drawing.Point(610, 77);
             this.txtCarReg.Name = "txtCarReg";
-            this.txtCarReg.Size = new System.Drawing.Size(291, 22);
+            this.txtCarReg.Size = new System.Drawing.Size(111, 22);
             this.txtCarReg.TabIndex = 53;
             this.txtCarReg.TextChanged += new System.EventHandler(this.txtCarReg_TextChanged);
             // 
@@ -93,7 +93,6 @@
             this.lblSurname.Size = new System.Drawing.Size(58, 16);
             this.lblSurname.TabIndex = 61;
             this.lblSurname.Text = "Surname";
-            this.lblSurname.Click += new System.EventHandler(this.lblSurname_Click);
             // 
             // lblForename
             // 
@@ -103,7 +102,6 @@
             this.lblForename.Size = new System.Drawing.Size(65, 16);
             this.lblForename.TabIndex = 62;
             this.lblForename.Text = "Forename";
-            this.lblForename.Click += new System.EventHandler(this.lblForename_Click);
             // 
             // lblPhoneNumber
             // 
@@ -120,7 +118,6 @@
             this.txtForename.Name = "txtForename";
             this.txtForename.Size = new System.Drawing.Size(291, 22);
             this.txtForename.TabIndex = 65;
-            this.txtForename.TextChanged += new System.EventHandler(this.txtForename_TextChanged);
             // 
             // txtSurname
             // 
@@ -128,7 +125,6 @@
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(291, 22);
             this.txtSurname.TabIndex = 66;
-            this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
             // 
             // txtPhoneNumber
             // 
@@ -136,7 +132,6 @@
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(291, 22);
             this.txtPhoneNumber.TabIndex = 67;
-            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
             // 
             // lblAddresses
             // 
@@ -153,7 +148,6 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(291, 22);
             this.txtAddress.TabIndex = 69;
-            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // grpCustDetails
             // 
@@ -165,33 +159,41 @@
             this.grpCustDetails.Controls.Add(this.txtPhoneNumber);
             this.grpCustDetails.Controls.Add(this.txtForename);
             this.grpCustDetails.Controls.Add(this.txtSurname);
-            this.grpCustDetails.Location = new System.Drawing.Point(14, 490);
+            this.grpCustDetails.Location = new System.Drawing.Point(510, 112);
             this.grpCustDetails.Name = "grpCustDetails";
             this.grpCustDetails.Size = new System.Drawing.Size(456, 216);
             this.grpCustDetails.TabIndex = 70;
             this.grpCustDetails.TabStop = false;
             this.grpCustDetails.Text = "Customer Details";
-            this.grpCustDetails.Enter += new System.EventHandler(this.grpCustDetails_Enter_1);
             // 
             // grpBookings
             // 
+            this.grpBookings.Controls.Add(this.btnAvailable);
             this.grpBookings.Controls.Add(this.label1);
             this.grpBookings.Controls.Add(this.dtpArrival);
             this.grpBookings.Controls.Add(this.label2);
             this.grpBookings.Controls.Add(this.dtpReturn);
-            this.grpBookings.Location = new System.Drawing.Point(487, 490);
+            this.grpBookings.Location = new System.Drawing.Point(14, 112);
             this.grpBookings.Name = "grpBookings";
             this.grpBookings.Size = new System.Drawing.Size(456, 216);
             this.grpBookings.TabIndex = 71;
             this.grpBookings.TabStop = false;
             this.grpBookings.Text = "Booking Details";
-            this.grpBookings.Enter += new System.EventHandler(this.grpBookings_Enter);
+            // btnAvailable
+            // 
+            this.btnAvailable.Location = new System.Drawing.Point(97, 143);
+            this.btnAvailable.Name = "btnAvailable";
+            this.btnAvailable.Size = new System.Drawing.Size(268, 53);
+            this.btnAvailable.TabIndex = 59;
+            this.btnAvailable.Text = "Check Availability";
+            this.btnAvailable.UseVisualStyleBackColor = true;
+            this.btnAvailable.Click += new System.EventHandler(this.btnAvailable_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.label1.Location = new System.Drawing.Point(22, 37);
+            this.label1.Location = new System.Drawing.Point(103, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 16);
             this.label1.TabIndex = 6;
@@ -200,7 +202,7 @@
             // dtpArrival
             // 
             this.dtpArrival.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.dtpArrival.Location = new System.Drawing.Point(26, 56);
+            this.dtpArrival.Location = new System.Drawing.Point(107, 49);
             this.dtpArrival.Name = "dtpArrival";
             this.dtpArrival.Size = new System.Drawing.Size(233, 22);
             this.dtpArrival.TabIndex = 56;
@@ -209,7 +211,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.label2.Location = new System.Drawing.Point(22, 93);
+            this.label2.Location = new System.Drawing.Point(103, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 16);
             this.label2.TabIndex = 58;
@@ -218,7 +220,7 @@
             // dtpReturn
             // 
             this.dtpReturn.Font = new System.Drawing.Font("Modern No. 20", 10F);
-            this.dtpReturn.Location = new System.Drawing.Point(26, 112);
+            this.dtpReturn.Location = new System.Drawing.Point(107, 105);
             this.dtpReturn.Name = "dtpReturn";
             this.dtpReturn.Size = new System.Drawing.Size(233, 22);
             this.dtpReturn.TabIndex = 57;
@@ -226,7 +228,7 @@
             // btnConfirmBooking
             // 
             this.btnConfirmBooking.Font = new System.Drawing.Font("Modern No. 20", 12F);
-            this.btnConfirmBooking.Location = new System.Drawing.Point(402, 733);
+            this.btnConfirmBooking.Location = new System.Drawing.Point(413, 691);
             this.btnConfirmBooking.Name = "btnConfirmBooking";
             this.btnConfirmBooking.Size = new System.Drawing.Size(152, 32);
             this.btnConfirmBooking.TabIndex = 60;
@@ -236,17 +238,16 @@
             // 
             // txtRerID
             // 
-            this.txtRerID.Location = new System.Drawing.Point(135, 441);
+            this.txtRerID.Location = new System.Drawing.Point(121, 75);
             this.txtRerID.Name = "txtRerID";
-            this.txtRerID.Size = new System.Drawing.Size(291, 22);
+            this.txtRerID.Size = new System.Drawing.Size(77, 22);
             this.txtRerID.TabIndex = 72;
-            this.txtRerID.ReadOnlyChanged += new System.EventHandler(this.True);
             this.txtRerID.TextChanged += new System.EventHandler(this.txtCarReg_TextChanged);
             // 
             // lblCarReg
             // 
             this.lblCarReg.AutoSize = true;
-            this.lblCarReg.Location = new System.Drawing.Point(481, 441);
+            this.lblCarReg.Location = new System.Drawing.Point(507, 81);
             this.lblCarReg.Name = "lblCarReg";
             this.lblCarReg.Size = new System.Drawing.Size(98, 16);
             this.lblCarReg.TabIndex = 52;
@@ -255,7 +256,7 @@
             // lblBookingId
             // 
             this.lblBookingId.AutoSize = true;
-            this.lblBookingId.Location = new System.Drawing.Point(31, 441);
+            this.lblBookingId.Location = new System.Drawing.Point(11, 75);
             this.lblBookingId.Name = "lblBookingId";
             this.lblBookingId.Size = new System.Drawing.Size(74, 16);
             this.lblBookingId.TabIndex = 73;
@@ -266,7 +267,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(955, 800);
+            this.ClientSize = new System.Drawing.Size(1000, 761);
             this.Controls.Add(this.lblBookingId);
             this.Controls.Add(this.btnConfirmBooking);
             this.Controls.Add(this.txtRerID);
@@ -312,5 +313,6 @@
         private System.Windows.Forms.TextBox txtRerID;
         private System.Windows.Forms.Label lblCarReg;
         private System.Windows.Forms.Label lblBookingId;
+        private System.Windows.Forms.Button btnAvailable;
     }
 }

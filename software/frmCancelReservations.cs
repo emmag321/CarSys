@@ -14,50 +14,36 @@ namespace software
     {
         private frmMain parent;
 
-
         public frmCancelReservations(frmMain parent)
         {
             InitializeComponent();
             this.parent = parent;
 
-            grdCancelBooking.DataSource = Reservations.getReservations();
-            //grdCancelBooking.DataSource = Reservations.deleteReservation();
+            //loads Data into dataGrd
+            grdCancelBooking.DataSource = Reservations.getAvailableReservations();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            parent.Show();
-            this.Dispose();
-        }
-
+        //navigation for back button
         private void btnBack_Click_1(object sender, EventArgs e)
         {
             parent.Show();
             this.Dispose();
         }
 
-        private void frmCancelBooking_Load(object sender, EventArgs e)
-        {
 
-        }
-
+        //Method to cancel reservation
         private void grdCancelBooking_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
             {
                 if (grdCancelBooking.Rows[e.RowIndex].Cells[7].Value.ToString() != "D")
                 {
-                    DialogResult confirmResult = MessageBox.Show("Are you sure you want to cancel this Reservstion?", "Confirm Cancelation", MessageBoxButtons.YesNo);
+                    DialogResult confirmResult = MessageBox.Show("Are you sure you want to cancel this Reservation?", "Confirm Cancelation", MessageBoxButtons.YesNo);
 
                     if (confirmResult == DialogResult.Yes)
                     {
-                        Reservations.cancelBooking(grdCancelBooking.Rows[e.RowIndex].Cells[1].Value.ToString());
-                        grdCancelBooking.DataSource = Reservations.getReservations();
+                        Reservations.cancelBooking(Int32.Parse(grdCancelBooking.Rows[e.RowIndex].Cells[1].Value.ToString()));
+                        grdCancelBooking.DataSource = Reservations.getAvailableReservations();
                     }
                 }
                 else
@@ -67,11 +53,6 @@ namespace software
             }
 
         }
-
-        /*private void btnCancelBooking_Click(object sender, EventArgs e)
-            {
-
-            }*/
     }
 }
 

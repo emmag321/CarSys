@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car_Class.cs" />
-    <Compile Include="Customer.cs" />
     <Compile Include="frmAddCar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +65,12 @@
       <DependentUpon>frmCancelReservations.cs</DependentUpon>
     </Compile>
     <Compile Include="Car.cs" />
+    <Compile Include="frmCarAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCarAnalysis.Designer.cs">
+      <DependentUpon>frmCarAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCollectCar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +82,12 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReservationAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReservationAnalysis.Designer.cs">
+      <DependentUpon>frmReservationAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReturnCar.cs">
       <SubType>Form</SubType>
@@ -125,11 +136,17 @@
     <EmbeddedResource Include="frmCancelReservations.resx">
       <DependentUpon>frmCancelReservations.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCarAnalysis.resx">
+      <DependentUpon>frmCarAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCollectCar.resx">
       <DependentUpon>frmCollectCar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReservationAnalysis.resx">
+      <DependentUpon>frmReservationAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReturnCar.resx">
       <DependentUpon>frmReturnCar.cs</DependentUpon>

@@ -56,7 +56,6 @@ namespace software
             this.cboClasses.Name = "cboClasses";
             this.cboClasses.Size = new System.Drawing.Size(147, 26);
             this.cboClasses.TabIndex = 18;
-            this.cboClasses.SelectedIndexChanged += new System.EventHandler(this.cboClasses_SelectedIndexChanged);
             // 
             // cboFuelTypes
             // 
@@ -67,7 +66,6 @@ namespace software
             this.cboFuelTypes.Name = "cboFuelTypes";
             this.cboFuelTypes.Size = new System.Drawing.Size(147, 26);
             this.cboFuelTypes.TabIndex = 16;
-            this.cboFuelTypes.SelectedIndexChanged += new System.EventHandler(this.cboFuelTypes_SelectedIndexChanged);
             // 
             // lblNumDoors
             // 
@@ -78,7 +76,6 @@ namespace software
             this.lblNumDoors.Size = new System.Drawing.Size(116, 18);
             this.lblNumDoors.TabIndex = 20;
             this.lblNumDoors.Text = "Number of doors";
-            this.lblNumDoors.Click += new System.EventHandler(this.lblNumDoors_Click);
             // 
             // btnAddCar
             // 
@@ -100,7 +97,6 @@ namespace software
             this.lblRegPlate.Size = new System.Drawing.Size(125, 18);
             this.lblRegPlate.TabIndex = 23;
             this.lblRegPlate.Text = "Registration Plate";
-            this.lblRegPlate.Click += new System.EventHandler(this.lblRegPlate_Click);
             // 
             // lblFuel
             // 
@@ -111,7 +107,6 @@ namespace software
             this.lblFuel.Size = new System.Drawing.Size(73, 18);
             this.lblFuel.TabIndex = 25;
             this.lblFuel.Text = "Fuel Type";
-            this.lblFuel.Click += new System.EventHandler(this.lblFuel_Click);
             // 
             // lblCarClasses
             // 
@@ -122,7 +117,6 @@ namespace software
             this.lblCarClasses.Size = new System.Drawing.Size(68, 18);
             this.lblCarClasses.TabIndex = 26;
             this.lblCarClasses.Text = "Car Class";
-            this.lblCarClasses.Click += new System.EventHandler(this.lblCarClasses_Click);
             // 
             // txtRegPlate
             // 
@@ -130,7 +124,6 @@ namespace software
             this.txtRegPlate.Name = "txtRegPlate";
             this.txtRegPlate.Size = new System.Drawing.Size(147, 20);
             this.txtRegPlate.TabIndex = 27;
-            this.txtRegPlate.TextChanged += new System.EventHandler(this.txtRegPlate_TextChanged);
             // 
             // lblMake
             // 
@@ -141,7 +134,6 @@ namespace software
             this.lblMake.Size = new System.Drawing.Size(43, 18);
             this.lblMake.TabIndex = 29;
             this.lblMake.Text = "Make";
-            this.lblMake.Click += new System.EventHandler(this.lblMake_Click);
             // 
             // lblModel
             // 
@@ -173,7 +165,6 @@ namespace software
             this.cboNumDoors.Name = "cboNumDoors";
             this.cboNumDoors.Size = new System.Drawing.Size(147, 26);
             this.cboNumDoors.TabIndex = 34;
-            this.cboNumDoors.SelectedIndexChanged += new System.EventHandler(this.cboNumDoors_SelectedIndexChanged);
             // 
             // btnBack
             // 
@@ -195,7 +186,6 @@ namespace software
             this.cboMake.Name = "cboMake";
             this.cboMake.Size = new System.Drawing.Size(147, 26);
             this.cboMake.TabIndex = 38;
-            this.cboMake.SelectedIndexChanged += new System.EventHandler(this.cboMake_SelectedIndexChanged);
             // 
             // txtModel
             // 
@@ -203,7 +193,6 @@ namespace software
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(147, 20);
             this.txtModel.TabIndex = 39;
-            this.txtModel.TextChanged += new System.EventHandler(this.txtModel_TextChanged);
             // 
             // frmAddCar
             // 

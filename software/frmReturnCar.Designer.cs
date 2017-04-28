@@ -31,6 +31,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnRemoveCar = new System.Windows.Forms.Button();
             this.grdReturns = new System.Windows.Forms.DataGridView();
+            this.btnColSelectCar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdReturns)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,12 +58,25 @@
             // 
             // grdReturns
             // 
+            this.grdReturns.AllowUserToAddRows = false;
+            this.grdReturns.AllowUserToDeleteRows = false;
             this.grdReturns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdReturns.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.btnColSelectCar});
             this.grdReturns.Location = new System.Drawing.Point(21, 51);
             this.grdReturns.Name = "grdReturns";
+            this.grdReturns.ReadOnly = true;
             this.grdReturns.Size = new System.Drawing.Size(755, 356);
             this.grdReturns.TabIndex = 45;
             this.grdReturns.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdReturns_CellContentClick);
+            // 
+            // btnColSelectCar
+            // 
+            this.btnColSelectCar.HeaderText = "Select Car";
+            this.btnColSelectCar.Name = "btnColSelectCar";
+            this.btnColSelectCar.ReadOnly = true;
+            this.btnColSelectCar.Text = "Return Car";
+            this.btnColSelectCar.UseColumnTextForButtonValue = true;
             // 
             // frmReturnCar
             // 
@@ -85,5 +99,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnRemoveCar;
         private System.Windows.Forms.DataGridView grdReturns;
+        private System.Windows.Forms.DataGridViewButtonColumn btnColSelectCar;
     }
 }

@@ -18,19 +18,27 @@ namespace software
             InitializeComponent();
             this.parent = parent;
 
-            grdReturns.DataSource = Customer.getCustomers();
+            //loads collected reservations inot data grid 
+            grdReturns.DataSource = Reservations.getCollectedReservations();
         }
 
-
+        //navigation for back button
         private void btnBack_Click(object sender, EventArgs e)
         {
             parent.Show();
             this.Dispose();
         }
 
+        //returned car button
         private void grdReturns_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == 0)
+            {
+                Reservations.carReturned(Int32.Parse(grdReturns.Rows[e.RowIndex].Cells[1].Value.ToString()), DateTime.Now);
+                MessageBox.Show("Car Returned");
 
+                grdReturns.DataSource = Reservations.getCollectedReservations();
+            }
         }
     }
 }

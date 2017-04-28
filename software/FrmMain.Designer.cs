@@ -40,9 +40,9 @@
             this.btnCancelBooking = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCollectCar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReturnCar = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageFinancesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.incomeAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.carAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnManageFin = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnResAnal = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCarAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
@@ -54,7 +54,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageCarsToolStripMenuItem,
             this.manageReservationsToolStripMenuItem,
-            this.manageFinancesToolStripMenuItem,
+            this.btnManageFin,
             this.btnExit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -150,27 +150,29 @@
             this.btnReturnCar.Text = "Return Car";
             this.btnReturnCar.Click += new System.EventHandler(this.btnReturnCar_Click);
             // 
-            // manageFinancesToolStripMenuItem
+            // btnManageFin
             // 
-            this.manageFinancesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.incomeAnalysisToolStripMenuItem,
-            this.carAnalysisToolStripMenuItem});
-            this.manageFinancesToolStripMenuItem.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manageFinancesToolStripMenuItem.Name = "manageFinancesToolStripMenuItem";
-            this.manageFinancesToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.manageFinancesToolStripMenuItem.Text = "Manage Finances";
+            this.btnManageFin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnResAnal,
+            this.btnCarAnalysis});
+            this.btnManageFin.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageFin.Name = "btnManageFin";
+            this.btnManageFin.Size = new System.Drawing.Size(133, 22);
+            this.btnManageFin.Text = "Manage Finances";
             // 
-            // incomeAnalysisToolStripMenuItem
+            // btnResAnal
             // 
-            this.incomeAnalysisToolStripMenuItem.Name = "incomeAnalysisToolStripMenuItem";
-            this.incomeAnalysisToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.incomeAnalysisToolStripMenuItem.Text = "Income Analysis";
+            this.btnResAnal.Name = "btnResAnal";
+            this.btnResAnal.Size = new System.Drawing.Size(212, 22);
+            this.btnResAnal.Text = "Reservation Analysis";
+            this.btnResAnal.Click += new System.EventHandler(this.btnResAnal_Click);
             // 
-            // carAnalysisToolStripMenuItem
+            // btnCarAnalysis
             // 
-            this.carAnalysisToolStripMenuItem.Name = "carAnalysisToolStripMenuItem";
-            this.carAnalysisToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.carAnalysisToolStripMenuItem.Text = "Car Analysis";
+            this.btnCarAnalysis.Name = "btnCarAnalysis";
+            this.btnCarAnalysis.Size = new System.Drawing.Size(212, 22);
+            this.btnCarAnalysis.Text = "Car Analysis";
+            this.btnCarAnalysis.Click += new System.EventHandler(this.btnCarAnalysis_Click);
             // 
             // btnExit
             // 
@@ -189,7 +191,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(983, 538);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmMain
             // 
@@ -202,7 +203,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "CARCOOL RENTALS";
-            this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -224,9 +224,9 @@
         private System.Windows.Forms.ToolStripMenuItem btnCancelBooking;
         private System.Windows.Forms.ToolStripMenuItem btnCollectCar;
         private System.Windows.Forms.ToolStripMenuItem btnReturnCar;
-        private System.Windows.Forms.ToolStripMenuItem manageFinancesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem incomeAnalysisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem carAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnManageFin;
+        private System.Windows.Forms.ToolStripMenuItem btnResAnal;
+        private System.Windows.Forms.ToolStripMenuItem btnCarAnalysis;
         private System.Windows.Forms.ToolStripMenuItem btnExit;
         private System.Windows.Forms.ToolStripMenuItem btnUpdateCar;
         private System.Windows.Forms.PictureBox pictureBox1;

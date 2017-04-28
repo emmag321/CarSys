@@ -115,65 +115,11 @@ namespace software
                 return false;
         }
 
+        //navigation for back button 
         private void btnBack_Click_1(object sender, EventArgs e)
         {
             parent.Show();
             this.Dispose();
-        }      
-
-        private void cboNumDoors_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-         private void txtRegPlate_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMake_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboClasses_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboFuelTypes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboMake_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }    
-
-        private void txtModel_TextChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void lblNumDoors_Click(object sender, EventArgs e)
-        {
-
-        }
-        
-        private void lblRegPlate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFuel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCarClasses_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

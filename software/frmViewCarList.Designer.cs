@@ -55,7 +55,6 @@
             this.grdRemovedars.Name = "grdRemovedars";
             this.grdRemovedars.Size = new System.Drawing.Size(817, 189);
             this.grdRemovedars.TabIndex = 49;
-            this.grdRemovedars.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdRemovedars_CellContentClick);
             // 
             // grdAvailableCars
             // 
@@ -64,7 +63,6 @@
             this.grdAvailableCars.Name = "grdAvailableCars";
             this.grdAvailableCars.Size = new System.Drawing.Size(817, 189);
             this.grdAvailableCars.TabIndex = 50;
-            this.grdAvailableCars.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdAvailableCars_CellContentClick);
             // 
             // lblRemoveCarHeading
             // 
@@ -75,7 +73,6 @@
             this.lblRemoveCarHeading.Size = new System.Drawing.Size(173, 29);
             this.lblRemoveCarHeading.TabIndex = 51;
             this.lblRemoveCarHeading.Text = "Removed Cars";
-            this.lblRemoveCarHeading.Click += new System.EventHandler(this.lblRemoveCarHeading_Click);
             // 
             // lblAvailableCars
             // 
@@ -86,7 +83,6 @@
             this.lblAvailableCars.Size = new System.Drawing.Size(167, 29);
             this.lblAvailableCars.TabIndex = 52;
             this.lblAvailableCars.Text = "Available Cars";
-            this.lblAvailableCars.Click += new System.EventHandler(this.lblAvailableCars_Click);
             // 
             // frmViewCarList
             // 
@@ -101,7 +97,6 @@
             this.Controls.Add(this.btnBack);
             this.Name = "frmViewCarList";
             this.Text = "ViewCarList";
-            this.Load += new System.EventHandler(this.frmViewCarList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdRemovedars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdAvailableCars)).EndInit();
             this.ResumeLayout(false);

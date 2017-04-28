@@ -20,17 +20,18 @@ namespace software
             this.parent = parent;
 
             //Puts data fro dB into grids
-            grdCars.DataSource = Car.getAvailableCars();
-
+           // grdCars.DataSource = Car.getAvailableCars();
             dtpArrival.MinDate = DateTime.Now;
             dtpReturn.MinDate = DateTime.Now;
         }   
 
+        //navigation for back button
         private void btnBack_Click_1(object sender, EventArgs e)
         {
             parent.Show();
             this.Dispose();
         }
+
 
          private void frmMakeBooking_Load(object sender, EventArgs e)
         {
@@ -49,38 +50,16 @@ namespace software
             {
                 txtCarReg.Text = row["RegPlate"].ToString();
             }
+           
+            // Check that return date is after arrivalDate
+            if (dtpArrival.Value.AddDays(1) > dtpReturn.Value.AddSeconds(1))
+            {
+                MessageBox.Show("Return date must be after arrival date");
+                return;
+            }
         }
 
-        private void txtForename_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSurname_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grpBookings_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grpCustDetails_Enter_1(object sender, EventArgs e)
-        {
-
-        }
-
+        //button to submit reservation - has all validation etc.
         private void btnConfirmBooking_Click(object sender, EventArgs e)
         {
             //All fields have to be filled in 
@@ -98,23 +77,16 @@ namespace software
                 return;
             }
 
-            //  Check that car available on selected days
-            if (!Reservations.isCarAvailable(txtCarReg.Text, dtpArrival.Value, dtpReturn.Value))
-            {
-               
-                        MessageBox.Show("Car is not available on the selected dates");
-                        return;
-             
-            }
-
             //save booking details in DB
             //Instantiate Car object
             Reservations myRes = new Reservations(Int32.Parse(txtRerID.Text.ToString()), txtForename.Text.ToUpper(), txtSurname.Text.ToUpper(), txtPhoneNumber.Text.ToUpper(), txtAddress.Text.ToUpper(), dtpArrival.Value, dtpReturn.Value, txtCarReg.Text, 'B');
 
-            //myRes.regRes();
+            myRes.regRes();
 
             //Display Conf Message
             MessageBox.Show("Car is now booked", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
 
             //reset UI
             txtForename.Text = "";
@@ -122,34 +94,24 @@ namespace software
             txtPhoneNumber.Text = "";
             txtAddress.Text = "";
             txtCarReg.Text = "";
-            txtRerID.Text = "";
+           // txtRerID.Text = "";
             dtpReturn.Text = "";
             dtpArrival.Text = "";
+
+
+            txtRerID.Text = Reservations.nextReservationNo().ToString();
         }
 
-
+        //making ID uneditable here
         private void txtCarReg_TextChanged(object sender, EventArgs e)
         {
             txtRerID.ReadOnly = true;
         }
-
-        private void grdCars_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+        //loads avail cars into datagrid
+        private void btnAvailable_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void True(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblForename_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblSurname_Click(object sender, EventArgs e)
-        {
+            grdCars.DataSource = Reservations.availableCars(dtpArrival.Value, dtpReturn.Value);
 
         }
     }

@@ -1,4 +1,4 @@
-﻿using Oracle.DataAccess.Client;
+﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -42,7 +42,6 @@ namespace software
             this.status = status;
 
         }
-
 
         //Setters
         public void setArrivalDate(DateTime arrivalDate) { this.arrivalDate = arrivalDate; }
@@ -109,16 +108,15 @@ namespace software
 
         }
 
-        //This method will mark booking as 'D'
-        public static void cancelBooking(String RegPlate)
+        //This method will mark booking as 'D' for removed/deleted
+        public static void cancelBooking(int reservationId)
         {
             //Connect to DB
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
-
-
+            
             //here needs to be fixed
-            String strSQL = "UPDATE Reservations SET Status = 'D' WHERE RegPlate = '" + RegPlate + "'";
+            String strSQL = "UPDATE Reservations SET Status = 'D' WHERE Reservation_Id = '" + reservationId + "'";
 
 
             //Execute SQL Query
@@ -131,18 +129,17 @@ namespace software
         }
 
         //Method to see if car is available for rent
-        public static Boolean isCarAvailable(String regNum, DateTime arrivalDate, DateTime returnDate)
+        public static Boolean isCarAvailable(String regNum, DateTime DateFrom, DateTime DateTo)
         {
             Boolean available = true;
-            String myArrDate = String.Format("{0:dd-MMM-yy}", arrivalDate);
-            String myRetDate = String.Format("{0:dd-MMM-yy}", returnDate);
 
             //Connect to DB
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
             //Define SQL Query
-            String strSQL = "SELECT * FROM  Reservations WHERE RegPlate = '" + regNum + "' AND status = 'B' AND (('" + myArrDate + "' BETWEEN arrivalDate AND returnDate) OR ('" + myRetDate + "' BETWEEN arrivalDate AND returnDate))";
+            //String strSQL = "SELECT * FROM  Reservations WHERE RegPlate = '" + regNum + "' AND (('" + myArrDate + "' BETWEEN arrivalDate AND returnDate) OR ('" + myRetDate + "' BETWEEN arrivalDate AND returnDate))";
+            String strSQL = "SELECT regplate FROM Reservations WHERE status = 'B' AND (TO_DATE('" + DateFrom.ToString("dd/M/yyyy") + "', 'DD/MM/YYYY') >= arrivalDate OR TO_DATE('" + DateTo.ToString("dd/M/yyyy") + "', 'DD/MM/YYYY') <= returnDate)";
 
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
@@ -156,35 +153,16 @@ namespace software
             return available;
         }
 
-
-        /* public static void deleteReservation(int reservationID)
-         {
-             //Connect to DB
-             OracleConnection conn = new OracleConnection(DBConnect.oradb);
-             conn.Open();
-
-
-             //here needs to be fixed
-             String strSQL = "UPDATE RESERVATIONS SET Status = 'D' WHERE reservation_id = '" + reservationID + "'";
-
-
-             //Execute SQL Query
-             OracleCommand cmd = new OracleCommand(strSQL, conn);
-             cmd.ExecuteNonQuery();
-
-             //Close DB Connection
-             conn.Close();
-
-         }*/
-
-        public static DataTable getReservations()
+        //Method to bring up avail cars
+        public static DataTable availableCars(DateTime DateFrom, DateTime DateTo)
         {
-            //connect to DB
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
             //Define SQL Query
-            String strSQL = "SELECT * FROM Reservations";
+            String strSQL = "SELECT * FROM Cars WHERE regplate NOT IN (SELECT regplate FROM Reservations WHERE status = 'B' AND (TO_DATE('" + DateFrom.ToString("dd/M/yyyy") + "', 'DD/MM/YYYY') >= arrivalDate OR TO_DATE('" + DateTo.ToString("dd/M/yyyy") + "', 'DD/MM/YYYY') <= returnDate)) and status ='A'";
+
+
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
             OracleDataAdapter da = new OracleDataAdapter(cmd);
@@ -194,24 +172,87 @@ namespace software
 
             conn.Close();
 
-
             return DS.Tables["cars"];
         }
 
 
+        //method to get data for datagrid for income analysis
+        public static DataSet getReservations(DataSet ds, String strSrh)
+        {
+            //Connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
 
+            //Define SQL Query
+            string strSQL = "SELECT TO_CHAR(ARRIVALDATE, 'MON')AS Month, COUNT(Reservation_ID) AS Reservations FROM Reservations WHERE EXTRACT(YEAR FROM ARRIVALDATE) = '" + strSrh + "' GROUP BY TO_CHAR(ARRIVALDATE, 'MON') Union ALL SELECT 'Total', COUNT(Reservation_ID) FROM Reservations";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);  
+ 
+            //Execute Query
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            //DataSet ds = new DataSet();
+            da.Fill(ds, "Res");
+
+            //Close DB connection
+            conn.Close();
+
+            return ds;
+        }
+
+        //method gets the available cars
+        public static DataTable getAvailableReservations()
+        {
+            //connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL Query
+            String strSQL = "SELECT * FROM Reservations WHERE status = 'B'";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet DS = new DataSet();
+            da.Fill(DS, "res");
+
+            conn.Close();
+
+
+            return DS.Tables["res"];
+        }
+
+        //method changes the car staus to 'C'
+        public static DataTable getCollectedReservations()
+        {
+            //connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL Query
+            String strSQL = "SELECT * FROM Reservations WHERE status = 'C'";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet DS = new DataSet();
+            da.Fill(DS, "res");
+
+            conn.Close();
+
+
+            return DS.Tables["res"];
+        }
+
+        //method marks car status as 'R' for returned 
         public static void carReturned(int reservationID, DateTime finalReturnDate)
         {
             //Connect to DB
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
-            String retDate = String.Format("{0:dd-MMM-yy}", finalReturnDate);
-
+            String retDate = finalReturnDate.ToString("dd/M/yyyy");
 
             //here needs to be fixed
-            String strSQL = "UPDATE RESERVATIONS SET status = 'R', final_return_date = '" + retDate + "' WHERE reservation_id = '" + reservationID + "'";
-
+            String strSQL = "UPDATE RESERVATIONS SET status = 'R', final_return_date = TO_DATE('" + retDate + "', 'DD/MM/YYYY') WHERE reservation_id = " + reservationID + "";
 
             //Execute SQL Query
             OracleCommand cmd = new OracleCommand(strSQL, conn);
@@ -222,15 +263,14 @@ namespace software
 
         }
 
-       
-        public static void carCollected(int reservationID, DateTime finalReturnDate)
+        //method changes cars staus to 'C' for collected
+        public static void carCollected(int reservationID)
         {
             //Connect to DB
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
-            String retDate = String.Format("{0:dd-MMM-yy}", finalReturnDate);
-
+            //String retDate = finalReturnDate.ToString("dd/M/yyyy");
 
             //here needs to be fixed
             String strSQL = "UPDATE RESERVATIONS SET status = 'C' WHERE reservation_id = '" + reservationID + "'";
@@ -243,8 +283,6 @@ namespace software
             conn.Close();
 
         }
-
-      
 
     }
 }

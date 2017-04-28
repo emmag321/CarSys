@@ -12,19 +12,18 @@ namespace software
 {
     public partial class frmRemoveCar : Form
     {
-        
         private frmMain parent;
         
-
         public frmRemoveCar(frmMain parent)
         {
             InitializeComponent();
             this.parent = parent;
 
-
+            //loads getCars method into grdRemoveCars
             grdRemoveCar.DataSource = Car.getCars();
         }
 
+        //grd contents here 
         private void InitializeComponent()
         {
             this.btnBack = new System.Windows.Forms.Button();
@@ -57,7 +56,6 @@ namespace software
             this.grdRemoveCar.Size = new System.Drawing.Size(829, 292);
             this.grdRemoveCar.TabIndex = 42;
             this.grdRemoveCar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdRemoveCar_CellClick);
-            this.grdRemoveCar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdRemoveCar_CellContentClick);
             // 
             // grdBtnDelete
             // 
@@ -76,31 +74,26 @@ namespace software
             this.Controls.Add(this.btnBack);
             this.Name = "frmRemoveCar";
             this.Text = "Remove Car";
-            this.Load += new System.EventHandler(this.frmRemoveCar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdRemoveCar)).EndInit();
             this.ResumeLayout(false);
 
         }
-
-        private void frmRemoveCar_Load(object sender, EventArgs e)
-        {
-
-        }
-
+       
+        //navigation for back button
         private void btnBack_Click(object sender, EventArgs e)
         {
-
             parent.Show();
             this.Dispose();
         }
 
-
+        //button which removes car
         private void grdRemoveCar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
             {
-                if (grdRemoveCar.Rows[e.RowIndex].Cells[7].Value.ToString() != "R")
+                if (grdRemoveCar.Rows[e.RowIndex].Cells[7].Value.ToString() != "D")
                 {
+                    //message box to confirm removal of car 
                     DialogResult confirmResult = MessageBox.Show("Are you sure to remove this Car?", "Confirm Remove", MessageBoxButtons.YesNo);
 
                     if (confirmResult == DialogResult.Yes)
@@ -115,11 +108,6 @@ namespace software
                 }
             }
             
-        }
-
-        private void grdRemoveCar_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

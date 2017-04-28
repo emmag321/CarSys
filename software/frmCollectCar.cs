@@ -17,53 +17,26 @@ namespace software
         {
             InitializeComponent();
             this.parent = parent;
-
-            grdCollectCar.DataSource = Customer.getCustomers();
-
-
+            //loads stuff into grd - cars that are available for collection 
+            grdCollectCar.DataSource = Reservations.getAvailableReservations();
         }
 
-
+        //navigation for back button 
         private void btnBack_Click(object sender, EventArgs e)
         {
             parent.Show();
             this.Dispose();
         }
-
-
-
-        private void frmCollectCar_Load(object sender, EventArgs e)
-        {
-            /*{
-                if (e.ColumnIndex == 0)
-                 {
-                     if (grdCollectCar.Rows[e.RowIndex].Cells[7].Value.ToString() != "D")
-                     {
-                         DialogResult confirmResult = MessageBox.Show("Are you sure you want to cancel this Reservstion?", "Confirm Cancelation", MessageBoxButtons.YesNo);
-
-                         if (confirmResult == DialogResult.Yes)
-                         {
-                             Reservations.cancelBooking(grdCancelBooking.Rows[e.RowIndex].Cells[1].Value.ToString());
-                             grdCancelBooking.DataSource = Reservations.getReservations();
-                         }
-                     }
-                     else
-                     {
-                         MessageBox.Show("Booking has been Cancelled!!");
-                     }
-                 }*/
-
-        }
-
-
+        
+        //click in the grd to mark car as collected 
         private void grdCollectCar_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void btnCollectCar_Click(object sender, EventArgs e)
-        {
-
+            if (e.ColumnIndex == 0)
+            {
+                Reservations.carCollected(Int32.Parse(grdCollectCar.Rows[e.RowIndex].Cells[1].Value.ToString()));
+                MessageBox.Show("Car Collected");
+                grdCollectCar.DataSource = Reservations.getAvailableReservations();
+            }
         }
     }
 }

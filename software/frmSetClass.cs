@@ -14,13 +14,8 @@ namespace software
 {
     public partial class frmSetClass : Form
     {
-       
-
         private frmMain parent;
       
-
-     
-
         public frmSetClass(frmMain parent)
         {
             InitializeComponent();
@@ -28,14 +23,7 @@ namespace software
             this.parent = parent;
         }
 
-      
-
-      
-        private void CarClass_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        //main button - contains validations in if statements etc.
         private void btnSet_Click_1(object sender, EventArgs e)
         {
             double txtRateVal;
@@ -79,35 +67,11 @@ namespace software
 
         }
 
+        //navigation for back button 
         private void btnBack_Click(object sender, EventArgs e)
         {
             parent.Show();
             this.Dispose();
-        }
-
-        private void lblCreateCarClass_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblClassCode_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblRate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDescription_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDescription_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

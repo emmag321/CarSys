@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,23 +11,23 @@ using System.Windows.Forms;
 
 namespace software
 {
-    public partial class frmViewCarList : Form
+    public partial class frmCarAnalysis : Form
     {
+        //Makes the main menu its parent 
         private frmMain parent;
 
-        //navigation 
-        public frmViewCarList(frmMain parent)
+
+        public frmCarAnalysis(frmMain parent)
         {
             InitializeComponent();
             this.parent = parent;
-
-            //retrieves info from DB
-            //grdViewCarList.DataSource = Car.getCars();
-            grdAvailableCars.DataSource = Car.getAvailableCars();
-            grdRemovedars.DataSource = Car.getRemovedCars();
+            //loads car makes from db - by make
+            grdCarsByMake.DataSource = Car.carAnalysis();
+            //loads method car pop from reservations to analysis cars by popularity 
+            grdCarPop.DataSource = Car.carsByPopularity();
         }
 
-        //bnavigation for back button
+        //navigation for back button 
         private void btnBack_Click(object sender, EventArgs e)
         {
             parent.Show();

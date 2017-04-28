@@ -31,7 +31,6 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.grdCancelBooking = new System.Windows.Forms.DataGridView();
             this.CancelReservation = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnCancelBooking = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdCancelBooking)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +55,7 @@
             this.grdCancelBooking.Location = new System.Drawing.Point(12, 54);
             this.grdCancelBooking.Name = "grdCancelBooking";
             this.grdCancelBooking.ReadOnly = true;
-            this.grdCancelBooking.Size = new System.Drawing.Size(893, 484);
+            this.grdCancelBooking.Size = new System.Drawing.Size(1153, 484);
             this.grdCancelBooking.TabIndex = 39;
             this.grdCancelBooking.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCancelBooking_CellContentClick);
             // 
@@ -68,28 +67,16 @@
             this.CancelReservation.Text = "Cancel";
             this.CancelReservation.UseColumnTextForButtonValue = true;
             // 
-            // btnCancelBooking
-            // 
-            this.btnCancelBooking.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelBooking.Location = new System.Drawing.Point(369, 572);
-            this.btnCancelBooking.Name = "btnCancelBooking";
-            this.btnCancelBooking.Size = new System.Drawing.Size(154, 34);
-            this.btnCancelBooking.TabIndex = 40;
-            this.btnCancelBooking.Text = "Cancel Reservation";
-            this.btnCancelBooking.UseVisualStyleBackColor = true;
-            // 
             // frmCancelReservations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(930, 669);
-            this.Controls.Add(this.btnCancelBooking);
+            this.ClientSize = new System.Drawing.Size(1177, 669);
             this.Controls.Add(this.grdCancelBooking);
             this.Controls.Add(this.btnBack);
             this.Name = "frmCancelReservations";
             this.Text = "Cancel Reservation";
-            this.Load += new System.EventHandler(this.frmCancelBooking_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdCancelBooking)).EndInit();
             this.ResumeLayout(false);
 
@@ -98,7 +85,6 @@
         #endregion
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridView grdCancelBooking;
-        private System.Windows.Forms.Button btnCancelBooking;
         private System.Windows.Forms.DataGridViewButtonColumn CancelReservation;
     }
 }

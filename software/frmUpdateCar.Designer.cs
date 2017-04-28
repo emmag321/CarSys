@@ -33,6 +33,8 @@
             this.bntOK = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.grpCar = new System.Windows.Forms.GroupBox();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.txtModel = new System.Windows.Forms.TextBox();
             this.cboMake = new System.Windows.Forms.ComboBox();
             this.cboNumDoors = new System.Windows.Forms.ComboBox();
@@ -46,8 +48,6 @@
             this.lblNumDoors = new System.Windows.Forms.Label();
             this.cboClasses = new System.Windows.Forms.ComboBox();
             this.cboFuelTypes = new System.Windows.Forms.ComboBox();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.grpCar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +71,6 @@
             this.lblReg.Size = new System.Drawing.Size(206, 18);
             this.lblReg.TabIndex = 0;
             this.lblReg.Text = "Please enter Cars Registration:";
-            this.lblReg.Click += new System.EventHandler(this.lblReg_Click);
             // 
             // bntOK
             // 
@@ -90,7 +89,6 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(135, 20);
             this.txtSearch.TabIndex = 2;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // grpCar
             // 
@@ -116,7 +114,26 @@
             this.grpCar.TabIndex = 39;
             this.grpCar.TabStop = false;
             this.grpCar.Text = "Update Car Details";
-            this.grpCar.Enter += new System.EventHandler(this.grpCar_Enter);
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStatus.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Location = new System.Drawing.Point(170, 264);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(147, 26);
+            this.cboStatus.TabIndex = 52;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(117, 267);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(47, 18);
+            this.lblStatus.TabIndex = 51;
+            this.lblStatus.Text = "Status";
             // 
             // txtModel
             // 
@@ -124,7 +141,6 @@
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(147, 22);
             this.txtModel.TabIndex = 50;
-            this.txtModel.TextChanged += new System.EventHandler(this.txtModel_TextChanged);
             // 
             // cboMake
             // 
@@ -135,7 +151,6 @@
             this.cboMake.Name = "cboMake";
             this.cboMake.Size = new System.Drawing.Size(147, 26);
             this.cboMake.TabIndex = 49;
-            this.cboMake.SelectedIndexChanged += new System.EventHandler(this.cboMake_SelectedIndexChanged);
             // 
             // cboNumDoors
             // 
@@ -146,7 +161,6 @@
             this.cboNumDoors.Name = "cboNumDoors";
             this.cboNumDoors.Size = new System.Drawing.Size(147, 26);
             this.cboNumDoors.TabIndex = 47;
-            this.cboNumDoors.SelectedIndexChanged += new System.EventHandler(this.cboNumDoors_SelectedIndexChanged);
             // 
             // lblModel
             // 
@@ -157,7 +171,6 @@
             this.lblModel.Size = new System.Drawing.Size(48, 18);
             this.lblModel.TabIndex = 46;
             this.lblModel.Text = "Model";
-            this.lblModel.Click += new System.EventHandler(this.lblModel_Click);
             // 
             // lblMake
             // 
@@ -168,7 +181,6 @@
             this.lblMake.Size = new System.Drawing.Size(43, 18);
             this.lblMake.TabIndex = 45;
             this.lblMake.Text = "Make";
-            this.lblMake.Click += new System.EventHandler(this.lblMake_Click);
             // 
             // txtRegPlate
             // 
@@ -176,7 +188,6 @@
             this.txtRegPlate.Name = "txtRegPlate";
             this.txtRegPlate.Size = new System.Drawing.Size(147, 22);
             this.txtRegPlate.TabIndex = 44;
-            this.txtRegPlate.TextChanged += new System.EventHandler(this.txtRegPlate_TextChanged);
             // 
             // lblCarClasses
             // 
@@ -238,7 +249,6 @@
             this.cboClasses.Name = "cboClasses";
             this.cboClasses.Size = new System.Drawing.Size(147, 26);
             this.cboClasses.TabIndex = 38;
-            this.cboClasses.SelectedIndexChanged += new System.EventHandler(this.cboClasses_SelectedIndexChanged);
             // 
             // cboFuelTypes
             // 
@@ -249,27 +259,6 @@
             this.cboFuelTypes.Name = "cboFuelTypes";
             this.cboFuelTypes.Size = new System.Drawing.Size(147, 26);
             this.cboFuelTypes.TabIndex = 37;
-            this.cboFuelTypes.SelectedIndexChanged += new System.EventHandler(this.cboFuelTypes_SelectedIndexChanged);
-            // 
-            // cboStatus
-            // 
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Location = new System.Drawing.Point(170, 264);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(147, 26);
-            this.cboStatus.TabIndex = 52;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(117, 267);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(47, 18);
-            this.lblStatus.TabIndex = 51;
-            this.lblStatus.Text = "Status";
             // 
             // frmUpdateCar
             // 
@@ -284,7 +273,6 @@
             this.Controls.Add(this.lblReg);
             this.Name = "frmUpdateCar";
             this.Text = "Update Car";
-            this.Load += new System.EventHandler(this.frmUpdateCar_Load);
             this.grpCar.ResumeLayout(false);
             this.grpCar.PerformLayout();
             this.ResumeLayout(false);

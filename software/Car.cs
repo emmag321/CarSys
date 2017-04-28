@@ -18,8 +18,6 @@ namespace software
         private string make;
         private string model;
         private char status;
- 
-    
 
         // Constructor with no arguments 
         public Car()
@@ -50,7 +48,6 @@ namespace software
             //Connect to DB
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
-
 
             //here needs to be fixed
             String strSQL = "INSERT INTO Cars VALUES('" + this.regPlate + "','" + this.carClass + 
@@ -119,6 +116,28 @@ namespace software
 
         }
 
+        public static DataTable getAllCars()
+        {
+            //connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL Query
+            String strSQL = "SELECT * CARS'";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet DS = new DataSet();
+            da.Fill(DS, "car");
+
+            conn.Close();
+
+
+            return DS.Tables["car"];
+
+        }
+
         public static Boolean alreadyRegistered(String RegNum)
         {
             Boolean answer = false;
@@ -149,10 +168,8 @@ namespace software
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
-
             //here needs to be fixed
-            String strSQL = "UPDATE Cars SET Status = 'R' WHERE RegPlate = '" + RegPlate + "'";
-            
+            String strSQL = "UPDATE Cars SET Status = 'D' WHERE RegPlate = '" + RegPlate + "'";
 
             //Execute SQL Query
             OracleCommand cmd = new OracleCommand(strSQL, conn);
@@ -162,7 +179,7 @@ namespace software
             conn.Close();
 
         }
-        
+
         //Method updates the cars details into DB
         public void updateCars(String RegPlate)
         {
@@ -209,6 +226,27 @@ namespace software
 
 
         //Retrieves available cars details from DB 
+        public static DataTable getAvailableCars2(DateTime DateFrom, DateTime DateTo)
+        {
+            //connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL Query
+            String strSQL = "SELECT * FROM Cars WHERE status = 'A'";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet DS = new DataSet();
+            da.Fill(DS, "cars");
+
+            conn.Close();
+
+            return DS.Tables["cars"];
+        }
+
+        //Retrieves available cars details from DB 
         public static DataTable getAvailableCars()
         {
             //connect to DB
@@ -226,7 +264,6 @@ namespace software
 
             conn.Close();
 
-
             return DS.Tables["cars"];
         }
 
@@ -238,7 +275,7 @@ namespace software
             conn.Open();
 
             //Define SQL Query
-            String strSQL = "SELECT * FROM Cars WHERE status = 'R'";
+            String strSQL = "SELECT * FROM Cars WHERE status = 'D'";
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
             OracleDataAdapter da = new OracleDataAdapter(cmd);
@@ -248,10 +285,51 @@ namespace software
 
             conn.Close();
 
+            return DS.Tables["cars"];
+        }
+
+        //method for analysis to group by make
+        public static DataTable carAnalysis ()
+        {
+            //SELECT make, COUNT(make)FROM Cars GROUP BY make;
+            //connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL Query
+            String strSQL = "SELECT make, COUNT(make) AS num_cars  FROM Cars GROUP BY make";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet DS = new DataSet();
+            da.Fill(DS, "cars");
+
+            conn.Close();
 
             return DS.Tables["cars"];
         }
 
+        public static DataTable carsByPopularity()
+        {
+            //SELECT make, COUNT(make)FROM Cars GROUP BY make;
+            //connect to DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL Query
+            String strSQL = "SELECT C.regplate, C.make, C.model,  COUNT(R.regplate) AS Num_Bookings FROM Cars C, Reservations R WHERE C.regplate = R.regplate GROUP BY C.regplate, C.make, C.model ORDER BY COUNT(R.regplate) DESC";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet DS = new DataSet();
+            da.Fill(DS, "cars");
+
+            conn.Close();
+
+            return DS.Tables["cars"];
+        }
 
         /********** setters *********/ //this part will access the varibles and change them directly
 
